@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahajan Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">Malhar Mahajan</div>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Hello, I'm Malhar</h1>
+      <p class="tagline">Aerospace engineering student &amp; innovator</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <img src="images/profile.jpg" alt="Nikhil standing on a beach at sunset" class="about-photo" />
+      <div class="about-text">
+        <p>
+          I'm a junior studying <strong>Aerospace Engineering</strong> with a passion for
+          flight dynamics, control systems and embedded software. Whether I'm
+          running simulations to predict structural loads or writing C code for
+          a controller, I love turning abstract theory into real‑world
+          solutions. Outside of class, I enjoy hiking, exploring new cities
+          and building drones from the ground up.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Caterpillar Inc.</h3>
+        <p class="small">Simulation Intern &amp; Embedded Controls Co‑Op</p>
+        <p>
+          At Caterpillar I supported both the Advanced Power Products and
+          Locomotion teams. I began as a simulations intern, conducting
+          structural and thermal analysis for engine cooling components, then
+          transitioned into a model‑based development co‑op designing
+          traction and braking algorithms in C and Simulink.
+        </p>
+        <a class="button" href="experience/caterpillar.html">Learn more</a>
+      </div>
+      <div class="card">
+        <h3>NAVAIR Fellowship</h3>
+        <p class="small">3‑DOF Thrust Stand Testbed</p>
+        <p>
+          During my fellowship with the Naval Air Systems Command, I built a
+          three‑degree‑of‑freedom testbed to measure thrust and torques for
+          small UAV propulsion systems. I performed dynamic modelling,
+          calibration and data acquisition for controlled experiments.
+        </p>
+        <a class="button" href="experience/navair.html">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Autonomous UAV</h3>
+        <p class="small">Self‑navigating quadrotor</p>
+        <p>
+          I designed and built an autonomous quadrotor from scratch. The
+          project encompasses hardware integration, flight control software and
+          autonomous waypoint navigation.
+        </p>
+        <a class="button" href="projects/autonomous_uav.html">View project</a>
+      </div>
+      <div class="card">
+        <h3>Three‑DOF Thrust Stand</h3>
+        <p class="small">Dynamics testbed</p>
+        <p>
+          A custom experimental apparatus to measure forces and moments on UAV
+          propulsion systems. The stand supports controlled experiments and
+          hardware‑in‑the‑loop testing.
+        </p>
+        <a class="button" href="projects/thrust_stand.html">View project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Malhar Mahajan. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
