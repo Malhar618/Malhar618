@@ -6,6 +6,8 @@
   <title>Contact · Malhar Mahajan</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Inline styles for the contact form. These sit atop your existing
+       styles.css and ensure the form integrates with the dark theme. */
     .contact-form {
       max-width: 500px;
       margin: 2rem auto;
@@ -52,7 +54,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
+      <div class="nav-brand">Malhar&nbsp;Mahajan</div>
       <ul class="nav-menu">
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#experience">Experience</a></li>
@@ -88,15 +90,16 @@
     </form>
     <p style="margin-top:1rem;">Alternatively, you can reach me at
       <a href="mailto:malhar05@vt.edu">malhar05@vt.edu</a> or via
-      <a href="https://www.linkedin.com/in/malhar-mahajan-9a6728208/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <a href="https://www.linkedin.com/in/malhar-mahajan-9a6728208/" target="_blank" rel="noopener">LinkedIn</a>.
+    </p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Malhar Mahajan</p>
+    <p>&copy; 2025 Malhar&nbsp;Mahajan</p>
   </footer>
 
   <script>
-    // Contact form submission
+    // Contact form submission handler.
     const form = document.getElementById('contact-form');
     const statusEl = document.getElementById('status');
     form.addEventListener('submit', async function (e) {
