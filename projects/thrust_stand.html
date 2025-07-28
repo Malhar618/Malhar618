@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three‑DOF Thrust Stand · Nikhil Mahajan</title>
+  <title>Three‑DOF Thrust Stand · Malhar Mahajan</title>
   <link rel="stylesheet" href="../styles.css" />
   <style>
     .media {
@@ -38,17 +38,25 @@
     <h2>Three‑DOF Thrust Stand</h2>
     <p class="small">Research Project &nbsp;•&nbsp; 2024 – 2025</p>
     <p>
-      Inspired by my fellowship work, I built a smaller version of the
-      three‑degree‑of‑freedom test stand to investigate how propulsion
-      systems interact with control algorithms. The stand measures forces
-      along roll, pitch and yaw axes, enabling me to validate control laws
-      before flying on a real drone.
+      During my time working on the 3DOF thrust stand, I 
+      had a couple of side projects in order to make the 
+      thrust stand physically work. With the efforts of the 
+      team I was able to optimize the thrust stand for weight
+      ,rebuild it, and work on multiple aspects of the drone. 
+      I was able to charecterize the thrust produced by the 
+      Motor, ESC, and Propellor combination through a make 
+      shift mini thrust stand where through a MATLAB script
+      we could derive a 7th order polynomial to feed in the 
+      custom Algorithm for the controls system inner loop.
+      Apart from that I was able to help re-assemble the 
+      drone to rig it to the thrust stand for the tuning 
+      of the controls system. 
     </p>
     <h3>Key Features</h3>
     <ul>
-      <li>Sturdy aluminium frame with low friction bearings</li>
-      <li>Force sensors calibrated for each axis</li>
-      <li>Data acquisition using a microcontroller and Python scripts</li>
+      <li>Sturdy aluminium frame with low friction slip rings and MX106T motors</li>
+      <li>Pixhawk based telemetry and Positioning Data</li>
+      <li>Data acquisition using DYNAMIXAL SDK, and acceleration through derived filter</li>
       <li>Supports rapid prototyping of control algorithms</li>
     </ul>
     <div class="media">
