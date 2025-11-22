@@ -7,6 +7,8 @@
 :root {
   --bg: #0a192f;
   --surface: #112240;
+  /* Slightly lighter shade for card gradients */
+  --surface-alt: #0f2a49;
   --accent: #64ffda;
   --text: #ccd6f6;
   --muted: #8892b0;
@@ -122,14 +124,15 @@ header {
 
 /* Sections */
 .section {
-  padding: 4rem 1.5rem;
+  /* Increased vertical padding for breathing room */
+  padding: 5rem 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .section h2 {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: var(--accent);
 }
 
@@ -162,13 +165,46 @@ header {
 }
 
 .card {
-  background-color: var(--surface);
-  padding: 1.5rem;
+  /* Card with subtle gradient and border for depth */
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+  padding: 2rem;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle lift on hover */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills chips */
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.85rem;
+  background-color: transparent;
+  cursor: default;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.chip:hover {
+  background-color: var(--accent);
+  color: #0a192f;
 }
 
 .card h3 {
@@ -191,18 +227,34 @@ header {
 .button {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
+  padding: 0.6rem 1.2rem;
+  border-radius: calc(var(--border-radius) + 2px);
   background-color: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
   text-align: center;
+  font-size: 0.9rem;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .button:hover {
   background-color: var(--accent);
-  color: #0a192f;
+  color: var(--bg);
+}
+
+/* Active link styling in nav */
+.nav-menu a.active {
+  color: var(--accent);
+}
+
+/* Nav hover effect for clarity */
+.nav-menu a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+.nav-menu a:hover {
+  color: var(--accent);
 }
 
 /* Footer */

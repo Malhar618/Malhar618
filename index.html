@@ -13,8 +13,11 @@
       <div class="nav-brand">Malhar Mahajan</div>
       <ul class="nav-menu">
         <li><a href="#about">About</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="classes.html">Classes</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -27,14 +30,20 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Hello, I'm Malhar</h1>
-      <p class="tagline">Aerospace engineering student &amp; innovator</p>
+      <p class="tagline hero-stagger">
+        Aerospace engineering student specialising in guidance, navigation
+        &amp; control systems
+      </p>
+      <p class="tagline hero-stagger">
+        Currently seeking a summer&nbsp;2026 controls/avionics internship
+      </p>
     </div>
   </section>
   <!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/ScrollTrigger.min.js" defer></script>
-<!-- Your script -->
-<script src="script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/ScrollTrigger.min.js" defer></script>
+  <!-- Your script will run after the DOM is ready -->
+  <script src="script.js" defer></script>
 
 
   <!-- About Section -->
@@ -44,15 +53,35 @@
       <img src="images/profile.jpg" alt="Malhar standing on a beach at sunset" class="about-photo" />
       <div class="about-text">
         <p>
-          I'm a junior studying <strong>Aerospace Engineering</strong> with a passion for
-          flight dynamics, control systems and embedded software. Whether I'm
-          running simulations to predict structural loads or writing C code for
-          a controller, I love turning abstract theory into real‑world
-          solutions. Outside of class, I enjoy hiking, exploring new cities
-          and building drones from the ground up.
+          I'm a third‑year <strong>Aerospace Engineering</strong> student at Virginia
+          Tech concentrating in <strong>Guidance, Control &amp; Navigation</strong>.
+          I thrive at the intersection of math, physics and software,
+          whether I'm running finite‑element simulations on heavy equipment or
+          writing C++ and MATLAB code for UAV control loops. My academic work
+          is grounded in real projects—I've tested traction controllers at
+          Caterpillar, built a three‑degree‑of‑freedom thrust stand for the
+          U.S. Navy and lead avionics development for a heavy‑lift UAV.
+        </p>
+        <p>
+          Outside of engineering, I enjoy hiking, exploring new cities and
+          mentoring other students in robotics. Building drones from the ground
+          up keeps me curious and connects abstract theory to tangible
+          results.
         </p>
       </div>
     </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section id="highlights" class="section">
+    <h2>Recent Highlights</h2>
+    <div class="card-grid" id="highlights-grid"></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills &amp; Tools</h2>
+    <div class="skills-chips" id="skills-list"></div>
   </section>
 
   <!-- Experience Section -->
@@ -112,11 +141,16 @@
     </div>
   </section>
 
+  <!-- Research Section -->
+  <section id="research" class="section">
+    <h2>Research &amp; Deliverables</h2>
+    <div class="card-grid" id="research-grid"></div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Malhar Mahajan. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
