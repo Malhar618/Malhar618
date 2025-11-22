@@ -243,8 +243,12 @@ header {
 }
 
 /* Active link styling in nav */
+/* Highlight the active navigation link more prominently with an accent underline.
+   This helps visitors orient themselves without cluttering the layout. */
 .nav-menu a.active {
   color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.25rem;
 }
 
 /* Nav hover effect for clarity */

@@ -13,9 +13,10 @@
       gap: 1rem;
     }
     .media img {
-      width: 100%;
-      max-width: 600px;
+      /* Display images side‑by‑side on larger screens and stack on small screens */
+      width: calc(50% - 0.5rem);
       border-radius: var(--border-radius);
+      object-fit: cover;
     }
   </style>
 </head>
@@ -41,27 +42,28 @@
     <h2>Three‑DOF Thrust Stand</h2>
     <p class="small">Research Project &nbsp;•&nbsp; 2024 – 2025</p>
     <p>
-      During my time working on the 3DOF thrust stand, I 
-      had a couple of side projects in order to make the 
-      thrust stand physically work. With the efforts of the 
-      team I was able to optimize the thrust stand for weight
-      ,rebuild it, and work on multiple aspects of the drone. 
-      I was able to charecterize the thrust produced by the 
-      Motor, ESC, and Propellor combination through a make 
-      shift mini thrust stand where through a MATLAB script
-      we could derive a 7th order polynomial to feed in the 
-      custom Algorithm for the controls system inner loop.
-      Apart from that I was able to help re-assemble the 
-      drone to rig it to the thrust stand for the tuning 
-      of the controls system. 
+      I spent the academic year building and refining a
+      three‑degree‑of‑freedom (3‑DOF) thrust stand to support
+      controlled experiments for UAV control‑system tuning. To reduce mass and
+      improve responsiveness we rebuilt the structure and optimized its
+      weight distribution. Using a makeshift mini thrust stand we
+      characterised the thrust produced by various motor, ESC and
+      propeller combinations. A MATLAB script fit the static data to a
+      seventh‑order polynomial, providing an accurate motor model for the
+      inner loop of our custom control algorithm. In addition I helped
+      reassemble the airframe and rig it to the stand so the team could
+      tune controllers with the full system in the loop.
     </p>
     <h3>Key Features</h3>
     <ul>
-      <li>Sturdy aluminium frame with low friction slip rings and MX106T motors</li>
-      <li>Pixhawk based telemetry and Positioning Data</li>
-      <li>Data acquisition using DYNAMIXAL SDK, and acceleration through derived filter</li>
-      <li>Supports rapid prototyping of control algorithms</li>
+      <li>Sturdy aluminium frame with low‑friction slip rings and MX106T motors</li>
+      <li>Pixhawk‑based telemetry and positioning data capture</li>
+      <li>Data acquisition using the Dynamixel SDK; accelerometer data
+        processed through derived filters</li>
+      <li>Supports rapid prototyping and validation of control algorithms</li>
     </ul>
+    <!-- Use a responsive gallery like the other project pages so images
+         sit side‑by‑side on larger screens and stack on small screens. -->
     <div class="media">
       <img src="../images/thrust_stand.jpg" alt="Three‑DOF thrust stand" />
       <img src="../images/thrust_stand_me.jpg" alt="Me in front of the thrust stand" />
