@@ -198,13 +198,36 @@ header {
   color: var(--accent);
   font-size: 0.85rem;
   background-color: transparent;
-  cursor: default;
+  cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .chip:hover {
   background-color: var(--accent);
   color: #0a192f;
+}
+
+/* Override default button styling for skill chips */
+button.chip {
+  font-family: inherit;
+  border: 1px solid var(--accent);
+  background-color: transparent;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  color: var(--accent);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+button.chip:hover {
+  background-color: var(--accent);
+  color: #0a192f;
+}
+
+/* Logo for experience cards */
+.experience-logo {
+  width: 48px;
+  height: auto;
+  margin-bottom: 0.75rem;
 }
 
 .card h3 {

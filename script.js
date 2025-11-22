@@ -18,37 +18,118 @@ const EMAIL_API =
 // Capture all sections with an id for navigation highlighting
 const SECTIONS   = document.querySelectorAll("section[id]");
 
-// Data for the highlights section. Each entry summarises a recent milestone.
-const HIGHLIGHTS = [
+/*
+ * Data for the professional experience section.
+ * Each entry represents a major role at a company and includes
+ * an id used for in‑page anchors, a short summary and a link to a
+ * dedicated detail page. An optional image can be provided to display
+ * a company logo at the top of the card.
+ */
+const EXPERIENCE = [
   {
+    id: "exp-simulations-intern",
+    title: "Simulations Intern, Caterpillar",
+    date: "May 2025 – Aug 2025",
+    description:
+      "Performed finite‑element analyses on radiator cores and battery cooling components using NX and NASTRAN; conducted lifting studies on generator modules and documented best practices to improve model fidelity.",
+    link: "experience/caterpillar_internship.html",
+    image: "images/cat_logo.png",
+  },
+  {
+    id: "exp-embedded-coop",
     title: "Embedded Controls Co‑Op, Caterpillar",
     date: "Aug 2025 – Present",
     description:
-      "Testing traction control system models in MATLAB/Simulink and generating production‑ready C code integrated into ECU firmware.",
-    link: "experience/caterpillar.html",
+      "Develops model‑based controllers in Simulink for traction, braking and position estimation; generates production C code integrated into engine control firmware; sets up SITL/HIL test rigs and collaborates with cross‑functional teams.",
+    link: "experience/caterpillar_coop.html",
+    image: "images/cat_logo.png",
   },
+];
+
+/*
+ * Data for the research and extracurricular section.
+ * This section encompasses fellowships, personal projects and leadership
+ * activities. Each object includes an id for anchors, a title, a date
+ * range, a concise description and an optional link to a detail page.
+ */
+const RESEARCH = [
   {
-    title: "NAVAIR Fellowship – 3‑DOF Thrust Stand",
+    id: "research-navair",
+    title: "NAVAIR Fellowship – UAV Thrust Stand",
     date: "Fall 2024 – Spring 2025",
     description:
-      "Designed and built a 3‑DOF thrust stand testbed for UAV control tuning. Integrated ROS2, Dynamixel servo control and genetic algorithms.",
+      "Renovated and recalibrated a three‑degree‑of‑freedom thrust stand for UAV control‑system tuning; integrated ROS2 and Dynamixel servos; developed C++ nodes and genetic‑algorithm‑based PID tuning.",
     link: "experience/navair.html",
   },
   {
-    title: "Team Lead, Avionics &amp; Programming – GoAERO @VTech",
-    date: "Aug 2024 – Sep 2025",
-    description:
-      "Led avionics integration for a heavy‑lift UAV, oversaw ROS2‑based flight communication architecture and helped win the NASA University Innovation prize.",
-    link: "#projects",
-  },
-  {
+    id: "research-autonomous-uav",
     title: "Autonomous UAV Project",
     date: "May 2024 – Aug 2024",
     description:
-      "Engineered an autonomous quadrotor using a Jetson Nano and Intel RealSense D455 for real‑time mapping, MAVSDK control and gesture recognition.",
+      "Designed and built an autonomous quadrotor from scratch, integrating sensors, writing flight‑control software and implementing waypoint navigation using a finite state machine.",
     link: "projects/autonomous_uav.html",
   },
+  {
+    id: "research-goaero",
+    title: "GoAERO Team Lead &amp; Preliminary Design Review",
+    date: "Aug 2024 – Sep 2025",
+    description:
+      "Led avionics and programming for a heavy‑lift UAV competing in the GoAERO Prize; oversaw ROS2‑based communication architecture and prepared the preliminary design review detailing avionics and flight‑control systems.",
+    link: "research/goaero.html",
+  },
+  {
+    id: "research-gtms",
+    title: "GTMS Internship",
+    date: "2025",
+    description:
+      "Researched cooling systems and traction‑control algorithms for heavy machinery; carried out finite‑element analyses and developed model‑based control prototypes.",
+    link: "research/gtms.html",
+  },
+  {
+    id: "research-stlf",
+    title: "STLF Traction Control Components",
+    date: "2025",
+    description:
+      "Collaborated with the STLF program to design common software modules for traction control; refined control algorithms and interface definitions across multiple platforms.",
+    link: "research/stlf.html",
+  },
+  {
+    id: "research-airtalent",
+    title: "AirTalent Symposium Poster",
+    date: "2025",
+    description:
+      "Created a poster showcasing advanced flight‑control research and guidance, navigation &amp; control methodology for the AirTalent Symposium.",
+    link: "research/airtalent.html",
+  },
+  {
+    id: "research-undergrad",
+    title: "Undergraduate Research Presentation",
+    date: "2025",
+    description:
+      "Presented undergraduate research on guidance, navigation &amp; control, highlighting thrust‑stand development and genetic‑algorithm‑based controller tuning.",
+    link: "research/undergrad.html",
+  },
 ];
+
+/*
+ * Mapping of individual skills to the id of the experience or research
+ * card where that skill is most prominently demonstrated. When a user
+ * clicks on a skill chip they will be navigated to the corresponding
+ * card on the home page.
+ */
+const SKILL_LINKS = {
+  "C++": "research-navair",
+  "MATLAB/Simulink": "exp-embedded-coop",
+  Python: "research-autonomous-uav",
+  ROS2: "research-goaero",
+  "Embedded C": "exp-embedded-coop",
+  "Finite Element Analysis": "exp-simulations-intern",
+  "Control Theory": "research-navair",
+  "SolidWorks & CAD": "exp-simulations-intern",
+  "Linux/Jetson": "research-autonomous-uav",
+  "Genetic Algorithms": "research-navair",
+  "Team Leadership": "research-goaero",
+};
 
 // Data for the skills section. Each entry lists a skill or tool.
 const SKILLS = [
@@ -59,57 +140,13 @@ const SKILLS = [
   "Embedded C",
   "Finite Element Analysis",
   "Control Theory",
-  "SolidWorks &amp; CAD",
+  "SolidWorks & CAD",
   "Linux/Jetson",
   "Genetic Algorithms",
   "Team Leadership",
 ];
 
-// Data for the research and deliverables section. Each entry summarises a report, poster or set of deliverables.
-const RESEARCH = [
-  {
-    title: "GTMS Internship",
-    date: "2025",
-    description:
-      "Conducted research and development on cooling systems and traction control algorithms for heavy machinery; contributed to finite element analyses and model‑based software.",
-    link: "",
-  },
-  {
-    title: "STLF Traction Control Components",
-    date: "2025",
-    description:
-      "Collaborated on common traction control software components within the STLF program; refined traction algorithms and interface definitions for heavy equipment.",
-    link: "",
-  },
-  {
-    title: "GoAERO Preliminary Design Review",
-    date: "2024",
-    description:
-      "Prepared a preliminary design review for a heavy‑lift UAV, capturing avionics and flight‑control architecture for the GoAERO competition.",
-    link: "",
-  },
-  {
-    title: "AirTalent Symposium Poster",
-    date: "2025",
-    description:
-      "Created a poster showcasing advanced flight‑control research and guidance, navigation &amp; control methodology at the AirTalent Symposium.",
-    link: "",
-  },
-  {
-    title: "Undergraduate Research Presentation",
-    date: "2025",
-    description:
-      "Presented undergraduate research on guidance, navigation &amp; control, focusing on thrust‑stand testbed development and genetic algorithm tuning.",
-    link: "",
-  },
-  {
-    title: "NAVAIR Thrust Stand Deliverables",
-    date: "2025",
-    description:
-      "Compiled deliverables for the NAVAIR thrust stand project, including test documentation, calibration procedures and results.",
-    link: "",
-  },
-];
+// The RESEARCH array has been redefined above.
 
 /* ============================== */
 /* ⮞  MAIN                        */
@@ -122,7 +159,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initContactForm();
   // Populate dynamic sections
-  populateHighlights();
+  populateExperience();
   populateSkills();
   populateResearch();
 });
@@ -291,6 +328,28 @@ function populateHighlights() {
     container.appendChild(card);
   });
 }
+// Render the Experience cards into the DOM
+function populateExperience() {
+  const container = document.getElementById("experience-grid");
+  if (!container || !Array.isArray(EXPERIENCE)) return;
+  container.innerHTML = "";
+  EXPERIENCE.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.id = item.id;
+    const logoPart = item.image
+      ? `<img src="${item.image}" alt="Company logo" class="experience-logo" />`
+      : "";
+    card.innerHTML = `
+      ${logoPart}
+      <h3>${item.title}</h3>
+      <p class="small">${item.date}</p>
+      <p>${item.description}</p>
+      ${item.link ? `<a class="button" href="${item.link}">Learn more</a>` : ""}
+    `;
+    container.appendChild(card);
+  });
+}
 
 // Render the Skills chips into the DOM
 function populateSkills() {
@@ -298,10 +357,22 @@ function populateSkills() {
   if (!container || !Array.isArray(SKILLS)) return;
   container.innerHTML = "";
   SKILLS.forEach((skill) => {
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = skill;
-    container.appendChild(chip);
+    const target = SKILL_LINKS[skill] || null;
+    // use a button element instead of an anchor to prevent default href behaviour
+    const el = document.createElement("button");
+    el.className = "chip";
+    el.type = "button";
+    el.textContent = skill;
+    if (target) {
+      el.addEventListener("click", () => {
+        const targetEl = document.getElementById(target);
+        if (targetEl) {
+          // Smoothly scroll to the section
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
+    container.appendChild(el);
   });
 }
 
@@ -313,6 +384,8 @@ function populateResearch() {
   RESEARCH.forEach((item) => {
     const card = document.createElement("div");
     card.className = "card";
+    // assign an id so that skill chips can link to this card
+    card.id = item.id;
     card.innerHTML = `
       <h3>${item.title}</h3>
       <p class="small">${item.date}</p>
