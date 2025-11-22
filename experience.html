@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caterpillar Experience · Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <title>Experience · Malhar Mahajan</title>
+  <!-- Reuse the shared stylesheet from the root of the portfolio -->
+  <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Grid layout for the gallery on the experience overview page */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -17,6 +19,7 @@
       border-radius: var(--border-radius);
       object-fit: cover;
     }
+    /* Ensure the cards for the two rotations have a minimum height so the buttons align */
     .role-grid .card {
       min-height: 220px;
     }
@@ -27,14 +30,14 @@
     <nav class="navbar">
       <div class="nav-brand">Malhar Mahajan</div>
       <ul class="nav-menu">
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#skills-section">Skills</a></li>
-        <!-- Link to the standalone experience overview -->
-        <li><a href="../experience.html" class="active">Experience</a></li>
-        <li><a href="../index.html#research">Research</a></li>
-        <li><a href="../classes.html">Classes</a></li>
-        <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills-section">Skills</a></li>
+        <!-- The experience page is a standalone document, so link to itself and mark active -->
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -57,26 +60,26 @@
           cooling modules and documented best practices in setting up simulations to reduce time spent and
           improve model fidelity.
         </p>
-        <a class="button" href="caterpillar_internship.html">More about this role</a>
+        <a class="button" href="experience/caterpillar_internship.html">More about this role</a>
       </div>
       <div class="card">
         <h3>Embedded Controls Co‑Op</h3>
         <p class="small">Aug 2025 – Present</p>
         <p>
-          Joined the Integrated Product Systems(IPS) team to develop traction, braking and
+          Joined the Integrated Product Systems (IPS) team to develop traction, braking and
           positioning algorithms in Simulink and C. Integrated software on
           real vehicles and performed hardware‑in‑the‑loop testing.
         </p>
-        <a class="button" href="caterpillar_coop.html">More about this role</a>
+        <a class="button" href="experience/caterpillar_coop.html">More about this role</a>
       </div>
     </div>
 
     <h3>Gallery</h3>
     <div class="gallery">
-      <img src="../images/cat_dozer.jpg" alt="Standing in front of a Caterpillar D11 dozer" />
-      <img src="../images/cat_cubicle.jpg" alt="My cubicle at Caterpillar" />
-      <img src="../images/icecream.jpg" alt="Ice cream social at Caterpillar" />
-      <img src="../images/caterpillar_poster.jpg" alt="Vintage Caterpillar poster" />
+      <img src="images/cat_dozer.jpg" alt="Standing in front of a Caterpillar D11 dozer" />
+      <img src="images/cat_cubicle.jpg" alt="My cubicle at Caterpillar" />
+      <img src="images/icecream.jpg" alt="Ice cream social at Caterpillar" />
+      <img src="images/caterpillar_poster.jpg" alt="Vintage Caterpillar poster" />
     </div>
 
     <h3>Shared Skills &amp; Tools</h3>
@@ -86,7 +89,8 @@
       <li>Embedded C development &amp; testing</li>
       <li>Version control with Git</li>
     </ul>
-    <p><a href="../experience.html">&larr; Back to Experience overview</a></p>
+    <!-- Link back to the home page's experience section -->
+    <p><a href="index.html#experience">&larr; Back to Experience overview</a></p>
   </section>
 
   <footer>

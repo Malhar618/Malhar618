@@ -55,7 +55,8 @@ const EXPERIENCE = [
 const RESEARCH = [
   {
     id: "research-navair",
-    title: "NAVAIR Fellowship – UAV Thrust Stand",
+    // Keep the title concise to avoid truncation on narrow cards
+    title: "NAVAIR Thrust Stand",
     date: "Fall 2024 – Spring 2025",
     description:
       "Renovated and recalibrated a three‑degree‑of‑freedom thrust stand for UAV control‑system tuning; integrated ROS2 and Dynamixel servos; developed C++ nodes and genetic‑algorithm‑based PID tuning.",
@@ -358,19 +359,13 @@ function populateSkills() {
   container.innerHTML = "";
   SKILLS.forEach((skill) => {
     const target = SKILL_LINKS[skill] || null;
-    // use a button element instead of an anchor to prevent default href behaviour
-    const el = document.createElement("button");
+    // use an anchor for skill chips so default anchor behaviour scrolls to the target id
+    const el = document.createElement("a");
     el.className = "chip";
-    el.type = "button";
     el.textContent = skill;
     if (target) {
-      el.addEventListener("click", () => {
-        const targetEl = document.getElementById(target);
-        if (targetEl) {
-          // Smoothly scroll to the section
-          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
+      // set href to link to the section id; include index.html prefix if needed
+      el.href = `#${target}`;
     }
     container.appendChild(el);
   });
