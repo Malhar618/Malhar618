@@ -7,17 +7,15 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation -->
   <header>
     <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
+      <div class="nav-brand">Malhar Mahajan</div>
       <ul class="nav-menu">
         <li><a href="#about">About</a></li>
-    <!-- Nav item for Skills section uses a unique id to avoid CSS collisions -->
-    <li><a href="#skills-section">Skills</a></li>
-        <!-- Link to the standalone experience page instead of the in-page section -->
+        <li><a href="#skills-section">Skills</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="#research">Research &amp; Extracurricular</a></li>
+        <li><a href="#uwb-collab">UWB × AVA Lab</a></li>
         <li><a href="classes.html">Classes</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -25,81 +23,90 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Hello, I'm Malhar</h1>
+      <p class="hero-kicker hero-stagger">Virginia Tech Aerospace Engineering · GNC Focus</p>
+      <h1 class="hero-stagger">I build flight-critical systems that move from analysis to hardware.</h1>
       <p class="tagline hero-stagger">
-        Aerospace engineering student specialising in guidance, navigation
-        &amp; control systems
+        Aerospace engineering student specialising in guidance, navigation &amp; control systems,
+        embedded software, and autonomous UAV development.
       </p>
-      <p class="tagline hero-stagger">
-        Currently seeking a summer&nbsp;2026 controls/avionics internship
-      </p>
+      <p class="tagline hero-stagger">Actively seeking summer 2026 controls, avionics, and autonomy internships.</p>
+      <div class="hero-cta hero-stagger">
+        <a class="button" href="resume.pdf" target="_blank" rel="noopener">View Résumé</a>
+        <a class="button button-solid" href="contact.html">Let's Connect</a>
+      </div>
     </div>
   </section>
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/ScrollTrigger.min.js" defer></script>
-  <!-- Your script will run after the DOM is ready -->
-  <script src="script.js" defer></script>
 
+  <section class="section metrics-section">
+    <div class="metric-cards">
+      <div class="metric-card">
+        <p class="metric-number">2</p>
+        <p class="metric-label">Caterpillar rotations in simulation + embedded controls</p>
+      </div>
+      <div class="metric-card">
+        <p class="metric-number">3-DOF</p>
+        <p class="metric-label">NAVAIR thrust stand renovated and recalibrated for GNC testing</p>
+      </div>
+      <div class="metric-card">
+        <p class="metric-number">ROS2</p>
+        <p class="metric-label">Autonomy communication stack used across UAV projects</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- About Section -->
   <section id="about" class="section">
     <h2>About Me</h2>
     <div class="about-grid">
       <img src="images/profile.jpg" alt="Malhar standing on a beach at sunset" class="about-photo" />
       <div class="about-text">
         <p>
-          I'm a third‑year <strong>Aerospace Engineering</strong> student at Virginia
-          Tech concentrating in <strong>Guidance, Control &amp; Navigation</strong>.
-          I thrive at the intersection of math, physics and software,
-          whether I'm running finite‑element simulations on heavy equipment or
-          writing C++ and MATLAB code for UAV control loops. My academic work
-          is grounded in real projects—I've tested traction controllers at
-          Caterpillar, built a three‑degree‑of‑freedom thrust stand for the
-          U.S. Navy and lead avionics development for a heavy‑lift UAV.
+          I'm a third-year <strong>Aerospace Engineering</strong> student at Virginia Tech concentrating in
+          <strong>Guidance, Control &amp; Navigation</strong>. I thrive at the intersection of math, physics and software,
+          whether I'm running finite-element simulations on heavy equipment or writing C++ and MATLAB code for UAV control loops.
+          My work is grounded in real projects: traction-controller development at Caterpillar, a 3-DOF thrust stand for the U.S. Navy,
+          and avionics leadership for a heavy-lift UAV team.
         </p>
         <p>
-          Outside of engineering, I enjoy hiking, exploring new cities and
-          mentoring other students in robotics. Building drones from the ground
-          up keeps me curious and connects abstract theory to tangible
-          results.
+          Outside of engineering, I enjoy hiking, exploring new cities and mentoring other students in robotics.
+          Building drones from the ground up keeps me curious and connects abstract theory to tangible results.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- The highlights section has been consolidated into the Experience and Research sections -->
-
-  <!-- Skills Section -->
-  <!-- Use a distinct id to avoid clashes with nav highlight and improve cross-page linking -->
   <section id="skills-section" class="section">
     <h2><span class="skills-heading">Skills &amp; Tools</span></h2>
     <div class="skills-chips" id="skills-list"></div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience" class="section">
     <h2>Experience</h2>
-    <!-- Cards will be injected here dynamically by script.js -->
     <div class="card-grid" id="experience-grid"></div>
   </section>
 
-  <!-- Projects have been folded into the Research/Extracurricular section -->
-
-  <!-- Research and Extracurricular Section -->
   <section id="research" class="section">
     <h2>Research &amp; Extracurricular</h2>
     <div class="card-grid" id="research-grid"></div>
   </section>
 
-  <!-- Footer -->
+  <section id="uwb-collab" class="section">
+    <h2>UWB Cross-Collaboration · AVA Lab (Dr. Joerger)</h2>
+    <p class="section-intro">
+      Through cross-collaboration at UWB with AVA Lab, I supported experimental validation and autonomy-focused workflows under
+      <strong>Dr. Joerger</strong>, combining controls fundamentals with practical deployment constraints.
+    </p>
+    <div class="card-grid" id="uwb-grid"></div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Malhar Mahajan. All rights reserved.</p>
+    <p>&copy; 2025 Malhar Mahajan. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
