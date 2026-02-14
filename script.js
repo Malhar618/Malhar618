@@ -1,3 +1,15 @@
+    highlights: [
+      "Applied CAE workflows to thermal and structural heavy-equipment components.",
+      "Improved simulation consistency through documented modeling standards.",
+    ],
+    highlights: [
+      "Bridges control design to deployable embedded code.",
+      "Builds verification pipelines with SITL/HIL for controller robustness.",
+    ],
+    highlights: [
+      "Restored critical test hardware for flight-controls experimentation.",
+      "Implemented controller tuning workflows for faster iterative testing.",
+    ],
 /*  script.js – Malhar Mahajan portfolio
     ────────────────────────────────────
     • GSAP‑powered intro + scroll animations
@@ -190,6 +202,14 @@ function initAnimations() {
       gsap.from(el, {
         scrollTrigger: {
           trigger: el,
+function renderHighlights(highlights) {
+  if (!Array.isArray(highlights) || highlights.length === 0) return "";
+  const list = highlights.map((item) => `<li>${item}</li>`).join("");
+  return `<ul class="card-highlights">${list}</ul>`;
+}
+
+      ${renderHighlights(item.highlights)}
+      ${renderHighlights(item.highlights)}
           start: "top 85%",
         },
         y: 30,
