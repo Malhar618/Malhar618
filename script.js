@@ -6,21 +6,23 @@ const SECTIONS = document.querySelectorAll("section[id]");
 const EXPERIENCE = [
   {
     id: "exp-simulations-intern",
-    title: "Simulations Intern, Caterpillar",
+    title: "Simulations Intern, Caterpillar (GTMS)",
     date: "May 2025 – Aug 2025",
     description:
-      "Performed finite-element analyses on radiator cores and battery cooling components using NX and NASTRAN; conducted lifting studies on generator modules and documented best practices to improve model fidelity.",
+      "Supported GTMS design decisions with thermal and CFD analyses on cooling components using NX and NASTRAN; helped accelerate NX Nastran adoption and documented best practices to improve model fidelity.",
     link: "experience/caterpillar_internship.html",
     image: "images/cat_logo.png",
+    tags: ["NX", "NASTRAN", "CFD"],
   },
   {
     id: "exp-embedded-coop",
-    title: "Embedded Controls Co-Op, Caterpillar",
+    title: "Embedded Controls Co-Op, Caterpillar (Technology Division)",
     date: "Aug 2025 – Present",
     description:
-      "Develops model-based controllers in Simulink for traction, braking and position estimation; generates production C code integrated into engine control firmware; sets up SITL/HIL test rigs and collaborates with cross-functional teams.",
+      "Architected situational speed target generators and wheel-level control logic for traction control in Simulink; developed multi-rate integration for vehicle sensing (IMU + wheel speed sensors) targeting ECM/ECU deployment with embedded C code generation; validated and tuned using Dynasty plant testing.",
     link: "experience/caterpillar_coop.html",
     image: "images/cat_logo.png",
+    tags: ["Simulink", "Embedded C", "SITL/HITL"],
   },
 ];
 
@@ -28,42 +30,47 @@ const RESEARCH = [
   {
     id: "research-navair",
     title: "NAVAIR Thrust Stand",
-    date: "Fall 2024 – Spring 2025",
+    date: "Aug 2024 – Aug 2025",
     description:
-      "Renovated and recalibrated a three-degree-of-freedom thrust stand for UAV control-system tuning; integrated ROS2 and Dynamixel servos; developed C++ nodes and genetic-algorithm PID tuning.",
+      "Built a three-DOF thrust-stand testbed with a GA workflow in MATLAB for controller tuning; integrated Pixhawk 6C + Odroid M1S running ROS 2 Galactic; developed C++ Dynamixel moment-cancellation nodes and IMU signal processing with high-pass filtering.",
     link: "experience/navair.html",
+    tags: ["ROS 2", "C++", "MATLAB", "GA"],
   },
   {
     id: "research-autonomous-uav",
     title: "Autonomous UAV Project",
     date: "May 2024 – Aug 2024",
     description:
-      "Designed and built an autonomous quadrotor from scratch, integrating sensors, writing flight-control software and implementing waypoint navigation using a finite-state machine.",
+      "Built an autonomous quadrotor with Jetson Nano + Intel RealSense D455 for real-time depth-based mapping and obstacle avoidance in Python/OpenCV; implemented MAVSDK flight control and validated in JMavSim and SITL/HITL environments.",
     link: "projects/autonomous_uav.html",
+    tags: ["Python", "OpenCV", "MAVSDK", "Jetson"],
   },
   {
     id: "research-goaero",
     title: "GoAERO Team Lead & Preliminary Design Review",
     date: "Aug 2024 – Sep 2025",
     description:
-      "Led avionics and programming for a heavy-lift UAV competing in the GoAERO Prize; oversaw ROS2 communication architecture and delivered the preliminary design review for avionics and flight-control systems.",
+      "Led avionics and programming for a heavy-lift UAV competing in the GoAERO Prize; built ROS 2 messaging, interfaces and integration between flight stack, sensors and compute; developed SITL/HITL + telemetry pipeline for flight-test readiness; won NASA University Innovation Prize ($30K).",
     link: "research/goaero.html",
+    tags: ["ROS 2", "SITL/HITL", "NASA"],
   },
   {
     id: "research-gtms",
     title: "GTMS Internship",
-    date: "2025",
+    date: "May 2025 – Aug 2025",
     description:
-      "Researched cooling systems and traction-control algorithms for heavy machinery; carried out finite-element analyses and developed model-based control prototypes.",
+      "Supported GTMS design decisions with thermal and CFD analyses on cooling components; helped accelerate NX Nastran adoption within the simulation group and documented best practices to improve model fidelity.",
     link: "research/gtms.html",
+    tags: ["NX", "NASTRAN", "Thermal/CFD"],
   },
   {
     id: "research-stlf",
     title: "STLF Traction Control Components",
-    date: "2025",
+    date: "Aug 2025 – Present",
     description:
-      "Collaborated with the STLF program to design common software modules for traction control; refined control algorithms and interface definitions across multiple platforms.",
+      "Architected situational speed target generators and wheel-level control logic for traction control; developed multi-rate integration for vehicle sensing (IMU + wheel speed sensors) targeting ECM/ECU deployment; validated and tuned using Dynasty plant testing.",
     link: "research/stlf.html",
+    tags: ["Simulink", "Embedded C", "Dynasty"],
   },
   {
     id: "research-airtalent",
@@ -72,77 +79,94 @@ const RESEARCH = [
     description:
       "Created a poster showcasing advanced flight-control research and guidance, navigation and control methodology for the AirTalent Symposium.",
     link: "research/airtalent.html",
-  },
-  {
-    id: "research-undergrad",
-    title: "Undergraduate Research Presentation",
-    date: "2025",
-    description:
-      "Presented undergraduate research on guidance, navigation and control, highlighting thrust-stand development and genetic-algorithm controller tuning.",
-    link: "research/undergrad.html",
+    tags: ["GNC", "Poster"],
   },
 ];
 
 const UWB_COLLAB = [
   {
     id: "uwb-ava-validation",
-    title: "AVA Lab Experimental Validation",
-    date: "UWB Cross-Collaboration",
+    title: "UWB Inter-Vehicle Cross-Link",
+    date: "Jan 2026 – Present",
     description:
-      "Supported AVA Lab validation activities under Dr. Joerger by translating control concepts into test-ready workflows and documenting repeatable procedures for reliable data capture.",
+      "Developing UWB-based inter-vehicle cross-link for collaborative navigation using Qorvo/Decawave modules under Dr. Joerger in the AVA Lab (NAViTi).",
+    tags: ["UWB", "MATLAB"],
   },
   {
     id: "uwb-ava-integration",
-    title: "Autonomy + Controls Integration",
-    date: "Systems Collaboration",
+    title: "MATLAB Tooling & Anomaly Quantification",
+    date: "Jan 2026 – Present",
     description:
-      "Contributed to cross-team integration where embedded implementation constraints, estimator behavior, and mission-level autonomy logic had to align for robust operation.",
+      "Built MATLAB tooling to parse UWB outputs, quantify anomalies under different environmental conditions and validate ranging accuracy for cooperative localization.",
+    tags: ["MATLAB", "Data Analysis"],
   },
   {
     id: "uwb-ava-deliverables",
-    title: "Technical Communication & Deliverables",
-    date: "Research Communication",
+    title: "Sensor Fusion & Cooperative Localization",
+    date: "Next Phase",
     description:
-      "Prepared concise technical updates and cross-functional handoff material to help researchers and student teams move faster from concept to usable results.",
+      "Fusing UWB ranging with inertial models using EKF and particle filters for cooperative localization and SLAM across multiple vehicles.",
+    tags: ["EKF", "SLAM"],
   },
 ];
 
-const SKILL_LINKS = {
-  "C++": "research-navair",
-  "MATLAB/Simulink": "exp-embedded-coop",
-  Python: "research-autonomous-uav",
-  ROS2: "research-goaero",
-  "Embedded C": "exp-embedded-coop",
-  "Finite Element Analysis": "exp-simulations-intern",
-  "Control Theory": "uwb-ava-validation",
-  "SolidWorks & CAD": "exp-simulations-intern",
-  "Linux/Jetson": "research-autonomous-uav",
-  "Genetic Algorithms": "research-navair",
-  "Team Leadership": "research-goaero",
+const SKILLS = {
+  languages: {
+    label: "Languages",
+    items: ["C/C++", "Python", "MATLAB"],
+  },
+  focus: {
+    label: "Focus Areas",
+    items: [
+      "Simulink & Code Generation",
+      "Estimation & Filtering",
+      "Controller Tuning & Validation",
+    ],
+  },
+  tools: {
+    label: "Tools & Frameworks",
+    items: [
+      "ROS 2",
+      "Embedded C",
+      "MAVSDK",
+      "ArduPilot/PX4",
+      "SITL/HITL",
+      "Git/GitHub",
+      "Linux",
+      "Siemens NX",
+      "SolidWorks & CAD",
+    ],
+  },
 };
 
-const SKILLS = [
-  "C++",
-  "MATLAB/Simulink",
-  "Python",
-  "ROS2",
-  "Embedded C",
-  "Finite Element Analysis",
-  "Control Theory",
-  "SolidWorks & CAD",
-  "Linux/Jetson",
-  "Genetic Algorithms",
-  "Team Leadership",
-];
+const SKILL_LINKS = {
+  "C/C++": "research-navair",
+  Python: "research-autonomous-uav",
+  MATLAB: "research-navair",
+  "Simulink & Code Generation": "exp-embedded-coop",
+  "ROS 2": "research-goaero",
+  "Embedded C": "exp-embedded-coop",
+  "Estimation & Filtering": "uwb-ava-validation",
+  "Controller Tuning & Validation": "exp-embedded-coop",
+  MAVSDK: "research-autonomous-uav",
+  "ArduPilot/PX4": "research-goaero",
+  "SITL/HITL": "research-goaero",
+  "Git/GitHub": "research-navair",
+  Linux: "research-autonomous-uav",
+  "Siemens NX": "exp-simulations-intern",
+  "SolidWorks & CAD": "exp-simulations-intern",
+};
 
 window.addEventListener("DOMContentLoaded", () => {
   initAnimations();
   initNavHighlight();
   initContactForm();
+  initHamburger();
   populateExperience();
   populateSkills();
   populateResearch();
   populateUwb();
+  initScrollAnimations();
 });
 
 function initAnimations() {
@@ -155,6 +179,66 @@ function initAnimations() {
     delay: 0.2,
     duration: 0.9,
     ease: "power3.out",
+  });
+}
+
+function initScrollAnimations() {
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined")
+    return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Fade-up for about section */
+  gsap.from(".about-grid", {
+    scrollTrigger: { trigger: ".about-grid", start: "top 85%" },
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out",
+  });
+
+  /* Stagger cards in each grid */
+  document.querySelectorAll(".card-grid, .metric-cards").forEach((grid) => {
+    gsap.from(grid.children, {
+      scrollTrigger: { trigger: grid, start: "top 85%" },
+      y: 40,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: "power3.out",
+    });
+  });
+
+  /* Skills categories */
+  gsap.from(".skills-category", {
+    scrollTrigger: {
+      trigger: "#skills-section",
+      start: "top 85%",
+    },
+    y: 30,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.7,
+    ease: "power3.out",
+  });
+}
+
+function initHamburger() {
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector(".nav-menu");
+  if (!(toggle && menu)) return;
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("open");
+    toggle.classList.toggle("open");
+  });
+
+  /* Close menu when a link is clicked */
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      toggle.classList.remove("open");
+    });
   });
 }
 
@@ -185,7 +269,7 @@ function initContactForm() {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statusEl.textContent = "Sending…";
+    statusEl.textContent = "Sending\u2026";
 
     const payload = {
       name: form.name.value.trim(),
@@ -210,9 +294,15 @@ function initContactForm() {
       }
     } catch (err) {
       console.error(err);
-      statusEl.textContent = "Could not send right now—please try again later.";
+      statusEl.textContent =
+        "Could not send right now\u2014please try again later.";
     }
   });
+}
+
+function renderTags(tags) {
+  if (!tags || tags.length === 0) return "";
+  return `<div class="card-tags">${tags.map((t) => `<span class="card-tag">${t}</span>`).join("")}</div>`;
 }
 
 function populateExperience() {
@@ -228,6 +318,7 @@ function populateExperience() {
       <h3>${item.title}</h3>
       <p class="small">${item.date}</p>
       <p>${item.description}</p>
+      ${renderTags(item.tags)}
       ${item.link ? `<a class="button" href="${item.link}">Learn more</a>` : ""}
     `;
     container.appendChild(card);
@@ -238,13 +329,29 @@ function populateSkills() {
   const container = document.getElementById("skills-list");
   if (!container) return;
   container.innerHTML = "";
-  SKILLS.forEach((skill) => {
-    const target = SKILL_LINKS[skill];
-    const el = document.createElement("a");
-    el.className = "chip";
-    el.textContent = skill;
-    el.href = target ? `#${target}` : "#skills-section";
-    container.appendChild(el);
+
+  Object.values(SKILLS).forEach((category) => {
+    const group = document.createElement("div");
+    group.className = "skills-category";
+
+    const heading = document.createElement("h4");
+    heading.className = "skills-category-label";
+    heading.textContent = category.label;
+    group.appendChild(heading);
+
+    const chipWrap = document.createElement("div");
+    chipWrap.className = "skills-chips";
+    category.items.forEach((skill) => {
+      const target = SKILL_LINKS[skill];
+      const el = document.createElement("a");
+      el.className = "chip";
+      el.textContent = skill;
+      el.href = target ? `#${target}` : "#skills-section";
+      chipWrap.appendChild(el);
+    });
+    group.appendChild(chipWrap);
+
+    container.appendChild(group);
   });
 }
 
@@ -260,6 +367,7 @@ function populateResearch() {
       <h3>${item.title}</h3>
       <p class="small">${item.date}</p>
       <p>${item.description}</p>
+      ${renderTags(item.tags)}
       ${item.link ? `<a class="button" href="${item.link}">Learn more</a>` : ""}
     `;
     container.appendChild(card);
@@ -278,6 +386,7 @@ function populateUwb() {
       <h3>${item.title}</h3>
       <p class="small">${item.date}</p>
       <p>${item.description}</p>
+      ${renderTags(item.tags)}
     `;
     container.appendChild(card);
   });

@@ -15,9 +15,6 @@
     .gallery img {
       width: calc(50% - 0.5rem);
       border-radius: var(--border-radius);
-      /* Show the entire photo instead of cropping. Using contain preserves
-         aspect ratio and ensures people on the edges (including me on the
-         right) remain visible. */
       object-fit: contain;
       height: auto;
     }
@@ -26,34 +23,35 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
+      <div class="nav-brand">Malhar Mahajan</div>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
       <ul class="nav-menu">
         <li><a href="../index.html#about">About</a></li>
         <li><a href="../index.html#skills-section">Skills</a></li>
         <li><a href="../experience.html">Experience</a></li>
         <li><a href="../index.html#research" class="active">Research</a></li>
         <li><a href="../classes.html">Classes</a></li>
-        <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="section">
-    <h2>NAVAIR Fellowship – 3‑DOF Thrust Stand</h2>
-    <p class="small">Naval Air Systems Command &nbsp;•&nbsp; Fall 2024 – Spring 2025</p>
+    <h2>NAVAIR Fellowship – 3-DOF Thrust Stand</h2>
+    <p class="small">Naval Air Systems Command &nbsp;&bull;&nbsp; Aug 2024 – Aug 2025</p>
     <p>
       As part of the NAVAIR Fellowship at Virginia Tech, I worked on a
-      three‑degree‑of‑freedom thrust stand used to develop and test control
+      three-degree-of-freedom thrust stand used to develop and test control
       algorithms for small unmanned aerial vehicles. The project combined
       mechanical renovation, software integration and control theory.
     </p>
     <h3>Project Overview</h3>
     <p>
       Our initial focus was on understanding UAV flight dynamics and control.
-      Under the guidance of Dr. L’Afflitto we studied rigid body dynamics,
+      Under the guidance of Dr. L'Afflitto we studied rigid body dynamics,
       Euler equations and PID control. Simultaneously, we evaluated an
-      existing thrust stand and discovered that its high mass caused yaw‑axis
+      existing thrust stand and discovered that its high mass caused yaw-axis
       motor failures due to excessive inertia. Through torque testing and CAD
       modelling, we redesigned the structure to reduce weight and improve
       responsiveness.
@@ -61,22 +59,26 @@
     <h3>Key Contributions</h3>
     <ul>
       <li>
-        Renovated and recalibrated a 3‑DOF thrust stand, reducing its mass
+        Renovated and recalibrated a 3-DOF thrust stand, reducing its mass
         and moment of inertia. Implemented new bearings and structural
         supports based on finite element analysis.
       </li>
       <li>
-        Set up ROS2 and the Dynamixel SDK on an Odroid single‑board computer;
+        Set up Pixhawk 6C + Odroid M1S running ROS 2 Galactic and the Dynamixel SDK;
         created a workspace to build and run the ACSL flight stack.
       </li>
       <li>
         Wrote C++ nodes to command Dynamixel servo motors and developed a
-        startup routine that zeroes all axes on power‑on. Enabled
+        startup routine that zeroes all axes on power-on. Enabled
         simultaneous control of roll, pitch and yaw.
       </li>
       <li>
-        Explored genetic algorithms in MATLAB for automatic PID tuning and
+        Developed a GA workflow in MATLAB for automatic PID tuning and
         designed a performance index node to evaluate controller quality.
+      </li>
+      <li>
+        Implemented IMU signal processing with high-pass filtering to
+        isolate meaningful dynamics from sensor noise.
       </li>
       <li>
         Documented assembly, wiring, data logging and troubleshooting in a
@@ -86,20 +88,28 @@
     <h3>Skills &amp; Tools</h3>
     <ul>
       <li>Mechanical design and CAD (SolidWorks, Onshape)</li>
-      <li>ROS2 &amp; C++ node development</li>
-      <li>Embedded Linux (Odroid) &amp; Dynamixel SDK</li>
+      <li>ROS 2 &amp; C++ node development</li>
+      <li>Embedded Linux (Odroid M1S) &amp; Dynamixel SDK</li>
       <li>Genetic algorithms and MATLAB scripting</li>
       <li>Technical documentation and teamwork</li>
     </ul>
+    <p>
+      <strong>Source code:</strong>
+      <a href="https://github.com/Malhar618/thruststand" target="_blank" rel="noopener">
+        github.com/Malhar618/thruststand
+      </a>
+    </p>
     <div class="gallery">
-      <img src="../images/thrust_stand.jpg" alt="Three‑DOF thrust stand testbed" />
+      <img src="../images/thrust_stand.jpg" alt="Three-DOF thrust stand testbed" />
       <img src="../images/thrust_stand_me.jpg" alt="Me standing in front of the thrust stand" />
     </div>
     <p style="margin-top:1rem;"><a href="../index.html#research">&larr; Back to Research overview</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Malhar Mahajan</p>
+    <p>&copy; 2026 Malhar Mahajan</p>
   </footer>
+
+  <script src="../script.js" defer></script>
 </body>
 </html>

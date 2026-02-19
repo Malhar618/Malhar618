@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three‑DOF Thrust Stand · Malhar Mahajan</title>
+  <title>Three-DOF Thrust Stand · Malhar Mahajan</title>
   <link rel="stylesheet" href="../styles.css" />
   <style>
     .media {
@@ -13,7 +13,6 @@
       gap: 1rem;
     }
     .media img {
-      /* Display images side‑by‑side on larger screens and stack on small screens */
       width: calc(50% - 0.5rem);
       border-radius: var(--border-radius);
       object-fit: cover;
@@ -23,54 +22,61 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
+      <div class="nav-brand">Malhar Mahajan</div>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
       <ul class="nav-menu">
         <li><a href="../index.html#about">About</a></li>
         <li><a href="../index.html#skills-section">Skills</a></li>
         <li><a href="../experience.html">Experience</a></li>
         <li><a href="../index.html#research" class="active">Research</a></li>
         <li><a href="../classes.html">Classes</a></li>
-        <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="section">
-    <h2>Three‑DOF Thrust Stand</h2>
-    <p class="small">Research Project &nbsp;•&nbsp; 2024 – 2025</p>
+    <h2>Three-DOF Thrust Stand</h2>
+    <p class="small">Research Project &nbsp;&bull;&nbsp; Aug 2024 – Aug 2025</p>
     <p>
       I spent the academic year building and refining a
-      three‑degree‑of‑freedom (3‑DOF) thrust stand to support
-      controlled experiments for UAV control‑system tuning. To reduce mass and
+      three-degree-of-freedom (3-DOF) thrust stand to support
+      controlled experiments for UAV control-system tuning. To reduce mass and
       improve responsiveness we rebuilt the structure and optimized its
       weight distribution. Using a makeshift mini thrust stand we
       characterised the thrust produced by various motor, ESC and
       propeller combinations. A MATLAB script fit the static data to a
-      seventh‑order polynomial, providing an accurate motor model for the
+      seventh-order polynomial, providing an accurate motor model for the
       inner loop of our custom control algorithm. In addition I helped
       reassemble the airframe and rig it to the stand so the team could
       tune controllers with the full system in the loop.
     </p>
     <h3>Key Features</h3>
     <ul>
-      <li>Sturdy aluminium frame with low‑friction slip rings and MX106T motors</li>
-      <li>Pixhawk‑based telemetry and positioning data capture</li>
+      <li>Sturdy aluminium frame with low-friction slip rings and MX106T motors</li>
+      <li>Pixhawk 6C + Odroid M1S running ROS 2 Galactic for telemetry and data capture</li>
       <li>Data acquisition using the Dynamixel SDK; accelerometer data
         processed through derived filters</li>
       <li>Supports rapid prototyping and validation of control algorithms</li>
     </ul>
-    <!-- Use a responsive gallery like the other project pages so images
-         sit side‑by‑side on larger screens and stack on small screens. -->
+    <p>
+      <strong>Source code:</strong>
+      <a href="https://github.com/Malhar618/thruststand" target="_blank" rel="noopener">
+        github.com/Malhar618/thruststand
+      </a>
+    </p>
     <div class="media">
-      <img src="../images/thrust_stand.jpg" alt="Three‑DOF thrust stand" />
+      <img src="../images/thrust_stand.jpg" alt="Three-DOF thrust stand" />
       <img src="../images/thrust_stand_me.jpg" alt="Me in front of the thrust stand" />
     </div>
     <p style="margin-top:1rem;"><a href="../index.html#research">&larr; Back to Research overview</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Malhar Mahajan</p>
+    <p>&copy; 2026 Malhar Mahajan</p>
   </footer>
+
+  <script src="../script.js" defer></script>
 </body>
 </html>
