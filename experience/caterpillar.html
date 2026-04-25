@@ -3,94 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caterpillar Experience · Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: var(--border-radius);
-      object-fit: cover;
-    }
-    .role-grid .card {
-      min-height: 220px;
-    }
-  </style>
+  <meta name="description" content="Caterpillar simulation and embedded controls experience by Malhar Mahajan." />
+  <title>Caterpillar Experience | Malhar Mahajan</title>
+  <link rel="stylesheet" href="../styles.css?v=20260425f" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
-      <ul class="nav-menu">
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#skills-section">Skills</a></li>
-        <!-- Link to the standalone experience overview -->
-        <li><a href="../experience.html" class="active">Experience</a></li>
-        <li><a href="../index.html#research">Research</a></li>
-        <li><a href="../classes.html">Classes</a></li>
-        <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html#proof">Proof</a></li>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="section">
-    <h2>Caterpillar Experience</h2>
-    <p>
-      I spent two rotations at <strong>Caterpillar Inc.</strong>, working on
-      structural simulations and later embedded controls. These roles gave me
-      insight into both the virtual product development and on‑vehicle
-      software that make heavy equipment reliable and efficient.
-    </p>
-    <div class="card-grid role-grid">
-      <div class="card">
-        <h3>Simulations Intern</h3>
-        <p class="small">May – Aug 2025</p>
+  <main id="main">
+    <section class="detail-hero">
+      <p class="eyebrow">Caterpillar</p>
+      <h1>Simulation discipline plus embedded controls implementation.</h1>
+      <p>
+        Two Caterpillar rotations gave me both sides of engineering judgment: physics-backed analysis in GTMS/LPSD and model-based control development in Caterpillar Technology.
+      </p>
+    </section>
+
+    <div class="detail-layout">
+      <article class="detail-copy">
+        <h2>Embedded Controls Co-op · Caterpillar Technology</h2>
         <p>
-          Performed finite element analyses for engine and battery management cooling
-          components using NX and NASTRAN. Conducted a lifting study on
-          cooling modules and documented best practices in setting up simulations to reduce time spent and
-          improve model fidelity.
+          In my current co-op, I work on modular Simulink controls for traction control, ABS, and vehicle-stability functions. The work centers on making control components reusable across different actuation paths: brake based, clutch based, electric motor, and related machine configurations.
         </p>
-        <a class="button" href="caterpillar_internship.html">More about this role</a>
-      </div>
-      <div class="card">
-        <h3>Embedded Controls Co‑Op</h3>
-        <p class="small">Aug 2025 – Present</p>
+        <ul>
+          <li>Architected situational speed target generators and wheel-level control logic for scenario-specific traction behavior.</li>
+          <li>Worked on machine-state estimator interfaces, filters, and error conventions so a modular wheel-speed generator can serve multiple vehicle-control systems.</li>
+          <li>Developed multi-rate sensing integration concepts for IMU and wheel-speed streams with different sampling rates.</li>
+          <li>Used Dynasty plant models to test model behavior, reduce oscillations seen in data, and account for actuator physical constraints.</li>
+          <li>Generated embedded C from Simulink for early ECM timing and sampling-rate feasibility checks.</li>
+        </ul>
+
+        <figure>
+          <img src="../images/cat_dozer_web.jpg" alt="Caterpillar heavy equipment in a company facility" />
+          <figcaption>Caterpillar experience across simulation, heavy-equipment context, and embedded controls workflows.</figcaption>
+        </figure>
+
+        <h2>GTMS Simulation Internship · LPSD</h2>
         <p>
-          Joined the Integrated Product Systems(IPS) team to develop traction, braking and
-          positioning algorithms in Simulink and C. Integrated software on
-          real vehicles and performed hardware‑in‑the‑loop testing.
+          In summer 2025, I supported Global Thermal Management Systems design decisions through structural, thermal, and CFD simulation work on cooling products. The strongest engineering lesson was how solver setup, boundary conditions, documentation, and cross-functional reviews control whether simulation results are useful.
         </p>
-        <a class="button" href="caterpillar_coop.html">More about this role</a>
-      </div>
+        <ul>
+          <li>Performed finite-element analysis on cooling-system components and lifting/operational load cases.</li>
+          <li>Compared NX Nastran workflows against legacy solver approaches and documented setup techniques.</li>
+          <li>Helped accelerate adoption of NX Nastran workflows across the group.</li>
+          <li>Participated in structural reviews and cross-functional engineering meetings.</li>
+        </ul>
+
+        <h2>What Transfers to Autonomy Roles</h2>
+        <p>
+          Recruiters looking at AV, robotics, or GNC roles should see a consistent thread: I can reason from plant behavior and sensor data to deployable model-based code, then validate that code against physical constraints instead of treating simulation as a black box.
+        </p>
+      </article>
+
+      <aside class="detail-sidebar">
+        <section class="detail-card">
+          <h2>Project Snapshot</h2>
+          <dl>
+            <div><dt>Domains</dt><dd>Embedded controls, simulation, heavy equipment</dd></div>
+            <div><dt>Tools</dt><dd>MATLAB/Simulink, generated C, Dynasty plant models, NX Nastran</dd></div>
+            <div><dt>Signals</dt><dd>Multi-rate sensing, filters, estimator interfaces, model validation</dd></div>
+            <div><dt>Target roles</dt><dd>Embedded controls, autonomy simulation, vehicle controls</dd></div>
+          </dl>
+        </section>
+        <section class="evidence-card">
+          <h2>Resume Anchor</h2>
+          <p>The public portfolio keeps Caterpillar details at a non-proprietary level and avoids publishing internal confidential material.</p>
+          <ul class="link-list">
+            <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume PDF</a></li>
+          </ul>
+        </section>
+      </aside>
     </div>
+  </main>
 
-    <h3>Gallery</h3>
-    <div class="gallery">
-      <img src="../images/cat_dozer.jpg" alt="Standing in front of a Caterpillar D11 dozer" />
-      <img src="../images/cat_cubicle.jpg" alt="My cubicle at Caterpillar" />
-      <img src="../images/icecream.jpg" alt="Ice cream social at Caterpillar" />
-      <img src="../images/caterpillar_poster.jpg" alt="Vintage Caterpillar poster" />
-    </div>
-
-    <h3>Shared Skills &amp; Tools</h3>
-    <ul>
-      <li>Finite element &amp; CFD analysis (NASTRAN, NX)</li>
-      <li>Model‑based design using MATLAB/Simulink</li>
-      <li>Embedded C development &amp; testing</li>
-      <li>Version control with Git</li>
-    </ul>
-    <p><a href="../experience.html">&larr; Back to Experience overview</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Malhar Mahajan</p>
+  <footer class="site-footer">
+    <p>© 2026 Malhar Mahajan.</p>
+    <p><a href="../index.html#experience">Back to experience</a></p>
   </footer>
+  <script src="../script.js?v=20260425b" defer></script>
 </body>
 </html>

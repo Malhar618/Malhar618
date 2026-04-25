@@ -3,137 +3,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact · Malhar Mahajan</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Inline styles for the contact form. These sit atop your existing
-       styles.css and ensure the form integrates with the dark theme. */
-    .contact-form {
-      max-width: 500px;
-      margin: 2rem auto;
-      background-color: var(--surface);
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .contact-form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #233554;
-      border-radius: var(--border-radius);
-      background-color: #0a192f;
-      color: var(--text);
-    }
-    .contact-form button {
-      width: 100%;
-      padding: 0.6rem 1rem;
-      border: 1px solid var(--accent);
-      background-color: transparent;
-      border-radius: var(--border-radius);
-      color: var(--accent);
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background-color: var(--accent);
-      color: #0a192f;
-    }
-    #status {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-  </style>
+  <meta name="description" content="Contact Malhar Mahajan for GNC, embedded controls, autonomous systems, and robotics internship opportunities." />
+  <title>Contact | Malhar Mahajan</title>
+  <link rel="stylesheet" href="styles.css?v=20260425f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-brand">Malhar&nbsp;Mahajan</div>
-      <ul class="nav-menu">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills-section">Skills</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="index.html#research">Research</a></li>
-        <li><a href="classes.html">Classes</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-mark">MM</span>
+        <span>Malhar Mahajan</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#proof">Proof</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#stack">Stack</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="nav-cta active" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="section">
-    <h2>Contact Me</h2>
-    <p>
-      Have a question or want to get in touch? Fill out the form below and
-      I'll get back to you as soon as possible.
-    </p>
-    <form id="contact-form" class="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Contact</p>
+      <h1>Let’s talk about controls, autonomy, or embedded systems work.</h1>
+      <p>
+        I am targeting recruiter and engineering-team conversations for GNC, embedded controls, autonomous vehicles, robotics simulation, and sensor-fusion validation roles.
+      </p>
+    </section>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
+    <section class="contact-grid" aria-label="Contact options">
+      <aside class="contact-panel">
+        <h2>Direct channels</h2>
+        <ul class="link-list">
+          <li><a href="mailto:malhar05@vt.edu">malhar05@vt.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/malhar-mahajan" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="resume.pdf" target="_blank" rel="noopener">Resume PDF</a></li>
+        </ul>
+        <p>
+          Best-fit topics: Simulink model-based controls, vehicle state estimation, ROS 2/PX4 integration, UWB ranging, autonomy simulation, and flight-test readiness.
+        </p>
+      </aside>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required />
+      <form id="contact-form" class="contact-form" method="post" action="/api/contact">
+        <h2>Send a message</h2>
+        <p>
+          This form posts to the local portfolio backend. If email delivery is not configured, the backend still validates and stores the message locally.
+        </p>
+        <div class="honeypot" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="field-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="field-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="field-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required />
+        </div>
+        <div class="field-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="button button-primary" type="submit">Send message</button>
+        <p id="status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-      <div id="status"></div>
-    </form>
-    <p style="margin-top:1rem;">Alternatively, you can reach me at
-      <a href="mailto:malhar05@vt.edu">malhar05@vt.edu</a> or via
-      <a href="https://www.linkedin.com/in/malhar-mahajan-9a6728208/" target="_blank" rel="noopener">LinkedIn</a>.
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Malhar&nbsp;Mahajan</p>
+  <footer class="site-footer">
+    <p>© 2026 Malhar Mahajan.</p>
+    <p><a href="index.html">Back to portfolio</a></p>
   </footer>
-  <!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.5/ScrollTrigger.min.js" defer></script>
-<!-- Your script -->
-<script src="script.js" defer></script>
 
-  <script>
-    // Contact form submission handler.
-    const form = document.getElementById('contact-form');
-    const statusEl = document.getElementById('status');
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      statusEl.textContent = 'Sending...';
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        subject: form.subject.value.trim(),
-        message: form.message.value.trim(),
-      };
-      try {
-        const response = await fetch('https://malhar-portfolio-server.onrender.com/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        const result = await response.json();
-        if (response.ok) {
-          statusEl.textContent = 'Your message has been sent! Thank you.';
-          form.reset();
-        } else {
-          statusEl.textContent = result.message || 'Error sending message.';
-        }
-      } catch (err) {
-        statusEl.textContent = 'Something went wrong. Please try again later.';
-      }
-    });
-  </script>
+  <script src="script.js?v=20260425b" defer></script>
 </body>
 </html>

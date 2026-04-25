@@ -1,0 +1,14 @@
+{
+  "name": "malhar-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Recruiter-facing engineering portfolio for Malhar Mahajan.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

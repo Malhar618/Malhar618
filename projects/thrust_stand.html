@@ -3,74 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three‑DOF Thrust Stand · Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    .media {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .media img {
-      /* Display images side‑by‑side on larger screens and stack on small screens */
-      width: calc(50% - 0.5rem);
-      border-radius: var(--border-radius);
-      object-fit: cover;
-    }
-  </style>
+  <meta name="description" content="Three-DOF UAV thrust stand case study by Malhar Mahajan." />
+  <title>Three-DOF Thrust Stand | Malhar Mahajan</title>
+  <link rel="stylesheet" href="../styles.css?v=20260425f" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-brand">Malhar Mahajan</div>
-      <ul class="nav-menu">
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#skills-section">Skills</a></li>
-        <li><a href="../experience.html">Experience</a></li>
-        <li><a href="../index.html#research" class="active">Research</a></li>
-        <li><a href="../classes.html">Classes</a></li>
-        <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html#proof">Proof</a></li>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="section">
-    <h2>Three‑DOF Thrust Stand</h2>
-    <p class="small">Research Project &nbsp;•&nbsp; 2024 – 2025</p>
-    <p>
-      I spent the academic year building and refining a
-      three‑degree‑of‑freedom (3‑DOF) thrust stand to support
-      controlled experiments for UAV control‑system tuning. To reduce mass and
-      improve responsiveness we rebuilt the structure and optimized its
-      weight distribution. Using a makeshift mini thrust stand we
-      characterised the thrust produced by various motor, ESC and
-      propeller combinations. A MATLAB script fit the static data to a
-      seventh‑order polynomial, providing an accurate motor model for the
-      inner loop of our custom control algorithm. In addition I helped
-      reassemble the airframe and rig it to the stand so the team could
-      tune controllers with the full system in the loop.
-    </p>
-    <h3>Key Features</h3>
-    <ul>
-      <li>Sturdy aluminium frame with low‑friction slip rings and MX106T motors</li>
-      <li>Pixhawk‑based telemetry and positioning data capture</li>
-      <li>Data acquisition using the Dynamixel SDK; accelerometer data
-        processed through derived filters</li>
-      <li>Supports rapid prototyping and validation of control algorithms</li>
-    </ul>
-    <!-- Use a responsive gallery like the other project pages so images
-         sit side‑by‑side on larger screens and stack on small screens. -->
-    <div class="media">
-      <img src="../images/thrust_stand.jpg" alt="Three‑DOF thrust stand" />
-      <img src="../images/thrust_stand_me.jpg" alt="Me in front of the thrust stand" />
-    </div>
-    <p style="margin-top:1rem;"><a href="../index.html#research">&larr; Back to Research overview</a></p>
-  </section>
+  <main id="main">
+    <section class="detail-hero">
+      <p class="eyebrow">Controls testbed</p>
+      <h1>Three-DOF thrust stand for UAV controller tuning.</h1>
+      <p>
+        Undergraduate research with Dr. L'Afflitto on a NAVAIR-funded ACSL project to renovate a physical UAV testbed and close the loop between control design, embedded actuation, and repeatable lab validation.
+      </p>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Malhar Mahajan</p>
+    <div class="detail-layout">
+      <article class="detail-copy">
+        <h2>Problem</h2>
+        <p>
+          Tuning UAS controllers directly in flight is slow and risky. Under Dr. L'Afflitto, our undergraduate research focused on a NAVAIR-funded testbed that could expose roll, pitch, and yaw behavior while keeping the aircraft constrained and measurable.
+        </p>
+
+        <h2>What I Built</h2>
+        <ul>
+          <li>Helped redesign, reassemble, rewire, and document a lighter three-degree-of-freedom thrust stand after prior yaw-axis inertia created motor-load problems.</li>
+          <li>Integrated Pixhawk 6C with an Odroid M1S running ROS 2 Galactic and the ACSL flight stack.</li>
+          <li>Implemented C++ ROS 2 nodes for Dynamixel current control and moment cancellation using inertia and rigid-body moment models.</li>
+          <li>Supported MATLAB genetic-algorithm workflows for inner-loop PID tuning and performance-index evaluation.</li>
+        </ul>
+
+        <figure>
+          <img src="../images/thrust_stand_web.jpg" alt="UAV mounted inside a three degree of freedom thrust stand" />
+          <figcaption>The renovated thrust stand with the UAV mounted at the center of rotation.</figcaption>
+        </figure>
+
+        <h2>Engineering Detail</h2>
+        <p>
+          The software stack connected PX4 vehicle odometry, Dynamixel MX-series current commands, filtered body-rate derivatives, and inertia matrices for the UAV and thrust-stand rings. The control code used torque computation terms of the form I alpha plus omega cross I omega, then mapped command torques into motor-current limits.
+        </p>
+        <p>
+          In simulation, the project used SolidWorks-exported CAD bodies through PyChrono to reason about body frames, inertia, center-of-mass placement, and actuation constraints before relying on hardware tests.
+        </p>
+
+        <figure>
+          <img src="../images/thrust_team_web.jpg" alt="ACSL student team standing with the completed thrust stand" />
+          <figcaption>ACSL team photo after the thrust stand rebuild.</figcaption>
+        </figure>
+
+        <h2>Outcome</h2>
+        <p>
+          The project produced a usable setup manual, hardware wiring guidance, ROS 2 build/run workflow, data logging procedure, troubleshooting path, and a foundation for iterative controller tuning experiments. I also presented this research through the AirTalent Symposium.
+        </p>
+      </article>
+
+      <aside class="detail-sidebar">
+        <section class="detail-card">
+          <h2>Project Snapshot</h2>
+          <dl>
+            <div><dt>Role</dt><dd>Undergraduate researcher, controls/software/hardware integration</dd></div>
+            <div><dt>Hardware</dt><dd>Pixhawk 6C, Odroid M1S, Dynamixel, UAV thrust stand</dd></div>
+            <div><dt>Software</dt><dd>ROS 2 Galactic, C++, MATLAB, PyChrono</dd></div>
+            <div><dt>Focus</dt><dd>NAVAIR-funded thrust stand, moment cancellation, GA tuning, AirTalent presentation</dd></div>
+          </dl>
+        </section>
+        <section class="evidence-card">
+          <h2>Evidence</h2>
+          <ul class="link-list">
+            <li><a href="../docs/navair_manual.pdf" target="_blank" rel="noopener">Setup manual PDF</a></li>
+            <li><a href="../docs/thrust_stand_report.pdf" target="_blank" rel="noopener">Research report PDF</a></li>
+            <li><a href="https://github.com/Malhar618/thruststand" target="_blank" rel="noopener">Public thrust stand repo</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Malhar Mahajan.</p>
+    <p><a href="../index.html#work">Back to work</a></p>
   </footer>
+  <script src="../script.js?v=20260425b" defer></script>
 </body>
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UWB collaborative navigation case study by Malhar Mahajan." />
+  <title>UWB Collaborative Navigation | Malhar Mahajan</title>
+  <link rel="stylesheet" href="../styles.css?v=20260425f" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html#proof">Proof</a></li>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="detail-hero">
+      <p class="eyebrow">Collaborative navigation</p>
+      <h1>Intervehicle UWB ranging for GNSS-degraded navigation.</h1>
+      <p>
+        A research project with Joey Cahill at Virginia Tech focused on direct vehicle-to-vehicle ranging constraints, UWB error characterization, and future Kalman-filter integration.
+      </p>
+    </section>
+
+    <div class="detail-layout">
+      <article class="detail-copy">
+        <h2>Problem</h2>
+        <p>
+          GNSS spoofing and interference can make a vehicle converge to a confident but false navigation state. The research question is whether commercial UWB hardware can provide direct cross-links between vehicles so relative range and heading constraints remain available when satellite navigation degrades.
+        </p>
+
+        <h2>My Contribution</h2>
+        <ul>
+          <li>Configured DWM1001C anchor/tag networks and collected static, vehicle, and calibration ranging data.</li>
+          <li>Built MATLAB logging and parsing tools for DWM1001 location/ranging payloads, including distance-only packet semantics.</li>
+          <li>Analyzed bias, RMSE, spike rate, outlier windows, and session-specific shifts across multiple geometry and distance cases.</li>
+          <li>Worked toward estimator-ready bias, noise, and outlier models so UWB can be incorporated into a Kalman-filter navigation framework.</li>
+        </ul>
+
+        <figure>
+          <img src="../images/uwb_calibration_overview.png" alt="UWB calibration plot comparing measured and corrected ranges" />
+          <figcaption>Calibration analysis used to turn raw ranging behavior into a runtime correction and measurement model.</figcaption>
+        </figure>
+
+        <h2>Measured Results</h2>
+        <p>
+          Poster results show practical UWB operation extended from about 31 m to 110 m, with a scheduled ranging framework. A piecewise correction reduced cross-validation MAE from 0.110 m to 0.058 m. A later one-to-one calibration workflow selected a second-order runtime correction and improved CV RMSE by 36.71% over a linear baseline.
+        </p>
+        <p>
+          Static one-to-one analysis covered four runs with 1,779-1,797 samples per run. RMSE ranged from roughly 0.063 m to 0.113 m, and the 2.0 m tests exposed a session-specific bias sign flip, which is exactly the kind of systematic behavior that has to be modeled before feeding ranges into an estimator.
+        </p>
+
+        <figure>
+          <img src="../images/uwb_heading_vector.png" alt="Relative heading vector diagram for multi-transceiver UWB geometry" />
+          <figcaption>Multi-transceiver geometry used to reason about relative range and heading constraints.</figcaption>
+        </figure>
+
+        <h2>Next Validation Step</h2>
+        <p>
+          The next technical step is to replicate the simulated multi-transceiver configuration on vehicle roof mounts, collect synchronized range streams, and validate the measurement model against inertial and vehicle-motion dynamics.
+        </p>
+      </article>
+
+      <aside class="detail-sidebar">
+        <section class="detail-card">
+          <h2>Project Snapshot</h2>
+          <dl>
+            <div><dt>Role</dt><dd>Researcher, logging/calibration/analysis</dd></div>
+            <div><dt>Hardware</dt><dd>Qorvo/Decawave DWM1001C UWB modules</dd></div>
+            <div><dt>Methods</dt><dd>SS-TWR, bias modeling, outlier analysis, relative-pose geometry</dd></div>
+            <div><dt>Tools</dt><dd>MATLAB, firmware logs, CSV diagnostics, Kalman-filter measurement modeling</dd></div>
+          </dl>
+        </section>
+        <section class="evidence-card">
+          <h2>Evidence</h2>
+          <p>Poster: Resilient Collaborative Navigation Using Intervehicle Ultra-Wideband Ranging in GNSS-Degraded Environments.</p>
+          <ul class="link-list">
+            <li><a href="../assets/JoeyMalharPoster.pptx">Poster source PPTX</a></li>
+            <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub profile</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Malhar Mahajan.</p>
+    <p><a href="../index.html#work">Back to work</a></p>
+  </footer>
+  <script src="../script.js?v=20260425b" defer></script>
+</body>
+</html>
