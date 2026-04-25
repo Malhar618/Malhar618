@@ -19,6 +19,7 @@ These notes record the evidence behind the redesign so future edits do not drift
 - Separate source-backed facts from user-provided context and avoid unsupported numbers.
 - Prefer four strong project stories over a long list of thin cards.
 - Keep project pages structured as problem, role, implementation, result, and evidence.
+- For UWB content, foreground AVA Lab, Dr. Mathieu Joerger, CARNATIONS, resilient PNT, and the concrete data/calibration work rather than leading with isolated metrics.
 
 ## Sources
 
@@ -30,3 +31,7 @@ These notes record the evidence behind the redesign so future edits do not drift
 - Google UX portfolio tips: https://services.google.com/fh/files/misc/ux_design_portfolio_tips_19.pdf
 - W3C WCAG contrast minimum: https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum
 - web.dev Web Vitals: https://web.dev/articles/vitals
+- Virginia Tech AVA Lab overview: https://autonomyandrobotics.centers.vt.edu/groups/ava.html
+- Virginia Tech AOE AVA Lab page: https://www.aoe.vt.edu/people/faculty/joerger/personal-page.html
+- CARNATIONS research overview: https://www.iitcarnations.org/research
+- CARNATIONS education/workforce page, UWB sensor evaluation: https://www.iitcarnations.org/education-and-workforce-development

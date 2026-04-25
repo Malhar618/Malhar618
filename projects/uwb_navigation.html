@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="UWB collaborative navigation case study by Malhar Mahajan." />
   <title>UWB Collaborative Navigation | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260425f" />
+  <link rel="stylesheet" href="../styles.css?v=20260425h" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -17,7 +17,7 @@
         <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="../index.html#proof">Proof</a></li>
+        <li><a href="../index.html#proof">Snapshot</a></li>
         <li><a href="../index.html#work">Work</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#stack">Stack</a></li>
@@ -29,10 +29,10 @@
 
   <main id="main">
     <section class="detail-hero">
-      <p class="eyebrow">Collaborative navigation</p>
-      <h1>Intervehicle UWB ranging for GNSS-degraded navigation.</h1>
+      <p class="eyebrow">AVA Lab / CARNATIONS</p>
+      <h1>UWB sensor evaluation for collaborative navigation.</h1>
       <p>
-        A research project with Joey Cahill at Virginia Tech focused on direct vehicle-to-vehicle ranging constraints, UWB error characterization, and future Kalman-filter integration.
+        Undergraduate research with Joey Cahill in Dr. Mathieu Joerger's Assured Vehicle Autonomy Lab, connected to CARNATIONS work on resilient positioning, navigation, and timing.
       </p>
     </section>
 
@@ -40,7 +40,7 @@
       <article class="detail-copy">
         <h2>Problem</h2>
         <p>
-          GNSS spoofing and interference can make a vehicle converge to a confident but false navigation state. The research question is whether commercial UWB hardware can provide direct cross-links between vehicles so relative range and heading constraints remain available when satellite navigation degrades.
+          AVA Lab designs and tests multisensor navigation, tracking, and mapping methods for automated air and ground vehicles. CARNATIONS extends that direction into resilient PNT for transportation systems, including GNSS interference, spoofing risk, and alternative sensing. My project asks whether commercial UWB modules can provide useful inter-vehicle ranging constraints when GNSS is degraded or untrusted.
         </p>
 
         <h2>My Contribution</h2>
@@ -48,7 +48,7 @@
           <li>Configured DWM1001C anchor/tag networks and collected static, vehicle, and calibration ranging data.</li>
           <li>Built MATLAB logging and parsing tools for DWM1001 location/ranging payloads, including distance-only packet semantics.</li>
           <li>Analyzed bias, RMSE, spike rate, outlier windows, and session-specific shifts across multiple geometry and distance cases.</li>
-          <li>Worked toward estimator-ready bias, noise, and outlier models so UWB can be incorporated into a Kalman-filter navigation framework.</li>
+          <li>Worked toward estimator-ready bias, noise, and outlier models so UWB can support collaborative navigation and integrity-aware sensor fusion.</li>
         </ul>
 
         <figure>
@@ -71,7 +71,7 @@
 
         <h2>Next Validation Step</h2>
         <p>
-          The next technical step is to replicate the simulated multi-transceiver configuration on vehicle roof mounts, collect synchronized range streams, and validate the measurement model against inertial and vehicle-motion dynamics.
+          The next technical step is to move from calibrated pairwise ranging into synchronized multi-node tests, then validate the measurement model against inertial data, vehicle motion, and CARNATIONS-style resilient PNT requirements.
         </p>
       </article>
 
@@ -80,6 +80,8 @@
           <h2>Project Snapshot</h2>
           <dl>
             <div><dt>Role</dt><dd>Researcher, logging/calibration/analysis</dd></div>
+            <div><dt>Lab</dt><dd>AVA Lab, Dr. Mathieu Joerger</dd></div>
+            <div><dt>Program context</dt><dd>CARNATIONS resilient PNT and UWB sensor evaluation</dd></div>
             <div><dt>Hardware</dt><dd>Qorvo/Decawave DWM1001C UWB modules</dd></div>
             <div><dt>Methods</dt><dd>SS-TWR, bias modeling, outlier analysis, relative-pose geometry</dd></div>
             <div><dt>Tools</dt><dd>MATLAB, firmware logs, CSV diagnostics, Kalman-filter measurement modeling</dd></div>
@@ -90,6 +92,8 @@
           <p>Poster: Resilient Collaborative Navigation Using Intervehicle Ultra-Wideband Ranging in GNSS-Degraded Environments.</p>
           <ul class="link-list">
             <li><a href="../assets/JoeyMalharPoster.pptx">Poster source PPTX</a></li>
+            <li><a href="https://autonomyandrobotics.centers.vt.edu/groups/ava.html" target="_blank" rel="noopener">AVA Lab overview</a></li>
+            <li><a href="https://www.iitcarnations.org/education-and-workforce-development" target="_blank" rel="noopener">CARNATIONS UWB sensor evaluation</a></li>
             <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub profile</a></li>
           </ul>
         </section>

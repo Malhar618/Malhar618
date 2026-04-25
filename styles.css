@@ -20,7 +20,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -333,6 +333,10 @@ h3 {
   width: min(var(--max-width), calc(100% - 2.5rem));
   margin: 0 auto;
   padding: 5rem 0;
+}
+
+section[id] {
+  scroll-margin-top: 5.4rem;
 }
 
 .section-heading {

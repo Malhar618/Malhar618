@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Malhar Mahajan is a Virginia Tech aerospace engineering student focused on guidance, navigation, controls, embedded systems, and autonomous vehicle validation." />
   <title>Malhar Mahajan | GNC, Embedded Controls, Autonomous Systems</title>
-  <link rel="stylesheet" href="styles.css?v=20260425f" />
+  <link rel="stylesheet" href="styles.css?v=20260425h" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -24,7 +24,7 @@
         <span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="#proof">Proof</a></li>
+        <li><a href="#proof">Snapshot</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#stack">Stack</a></li>
@@ -48,7 +48,7 @@
           <a class="button button-primary" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
           <a class="button button-secondary" href="#work">Selected work</a>
         </div>
-        <ul class="hero-facts" aria-label="Recruiter quick facts">
+        <ul class="hero-facts" aria-label="Quick facts">
           <li><strong>GNC / embedded controls</strong><span>2027 internship target</span></li>
           <li><strong>C/C++ · MATLAB/Simulink · Python</strong><span>daily toolchain</span></li>
           <li><strong>May 2027</strong><span>B.S. Aerospace Engineering</span></li>
@@ -58,24 +58,24 @@
 
     <section id="proof" class="section proof-band">
       <div class="section-heading">
-        <p class="eyebrow">Recruiter scan</p>
-        <h2>Hard signals, up front.</h2>
+        <p class="eyebrow">Snapshot</p>
+        <h2>Current engineering work.</h2>
       </div>
       <div class="proof-grid">
         <article class="proof-card">
-          <span class="proof-number">2</span>
-          <h3>Caterpillar rotations</h3>
+          <span class="proof-number">CAT</span>
+          <h3>Embedded controls</h3>
           <p>Structural/thermal simulation, then embedded controls in Caterpillar Technology.</p>
         </article>
         <article class="proof-card">
-          <span class="proof-number">110 m</span>
-          <h3>UWB range extension</h3>
-          <p>DWM1001C collaborative-navigation tests extended practical range from roughly 31 m.</p>
+          <span class="proof-number">AVA</span>
+          <h3>CARNATIONS UWB research</h3>
+          <p>Working with Dr. Mathieu Joerger on resilient PNT and UWB inter-vehicle ranging models.</p>
         </article>
         <article class="proof-card">
-          <span class="proof-number">0.058 m</span>
-          <h3>Calibrated MAE</h3>
-          <p>Piecewise UWB correction reduced cross-validation MAE from 0.110 m.</p>
+          <span class="proof-number">ACSL</span>
+          <h3>NAVAIR thrust stand</h3>
+          <p>Controls, hardware integration, and AirTalent presentation for Dr. L'Afflitto's lab.</p>
         </article>
         <article class="proof-card">
           <span class="proof-number">$30K</span>
@@ -87,30 +87,30 @@
 
     <section class="section intent-panel" aria-labelledby="intent-title">
       <div>
-        <p class="eyebrow">Positioning</p>
-        <h2 id="intent-title">The common thread is real-time state awareness.</h2>
+        <p class="eyebrow">Direction</p>
+        <h2 id="intent-title">Aerospace systems, sensors, and dynamics.</h2>
       </div>
       <p>
-        My strongest work sits where sensors, dynamics, embedded constraints, and verification meet: wheel-speed and machine-state estimation for vehicle control, inter-vehicle UWB ranging for GNSS-degraded navigation, and flight-control testbeds that expose controller behavior before flight.
+        I am drawn to problems where physical modeling, sensing, estimation, controls, and embedded implementation all matter. The specific platform can change: aircraft, ground vehicles, robotics, or test equipment. The engineering habit is the same: understand the dynamics, instrument the system, and validate the result against hardware or a credible simulation.
       </p>
     </section>
 
     <section id="work" class="section">
       <div class="section-heading wide">
-        <p class="eyebrow">Featured work</p>
-        <h2>Projects with evidence, not filler.</h2>
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects I can talk through technically.</h2>
         <p>
-          Each project card gives the problem, my role, the technical stack, and the result or next validation step.
+          A few representative systems where I had to connect theory, software, hardware constraints, and validation.
         </p>
       </div>
 
       <div class="feature-list">
         <article class="feature-card feature-card-large">
           <div class="feature-copy">
-            <p class="project-type">Collaborative navigation research</p>
-            <h3>Intervehicle UWB ranging for GNSS-degraded navigation</h3>
+            <p class="project-type">AVA Lab / CARNATIONS</p>
+            <h3>UWB sensor evaluation for collaborative navigation</h3>
             <p>
-              Developing UWB cross-links for cooperative vehicle localization with Qorvo/Decawave DWM1001C hardware, custom single-sided two-way ranging firmware, calibration models, and future Kalman-filter integration.
+              Undergraduate research with Dr. Mathieu Joerger in AVA Lab, connected to CARNATIONS work on resilient positioning, navigation, and timing. I focus on DWM1001C UWB ranging data, calibration, error behavior, and estimator-ready measurement models for collaborative navigation.
             </p>
             <ul class="evidence-list">
               <li>Characterized antenna-delay bias, multipath, dropouts, and outliers across static and vehicle runs.</li>
@@ -140,7 +140,7 @@
             </p>
             <ul class="evidence-list">
               <li>Implemented C++ ROS 2 nodes for Dynamixel moment cancellation using rigid-body inertia models.</li>
-              <li>Worked from CAD and PyChrono dynamics models to understand inertia and motor constraints.</li>
+              <li>Worked from CAD-derived dynamics and inertia estimates to understand motor constraints.</li>
               <li>Presented the research at the AirTalent Symposium and documented setup, wiring, data logging, GA workflow, and troubleshooting for future lab teams.</li>
             </ul>
             <div class="tag-row">
@@ -188,7 +188,7 @@
     <section id="experience" class="section">
       <div class="section-heading">
         <p class="eyebrow">Engineering history</p>
-        <h2>Experience aligned with selective autonomy and controls internships.</h2>
+        <h2>Controls, simulation, navigation, and lab work.</h2>
       </div>
       <div class="timeline">
         <article class="timeline-item">
@@ -203,9 +203,9 @@
         <article class="timeline-item">
           <time>Jan 2026 - Present</time>
           <div>
-            <h3>AVA Lab / NAVITI · UWB collaborative navigation</h3>
+            <h3>AVA Lab · Dr. Mathieu Joerger · CARNATIONS UWB research</h3>
             <p>
-              UWB ranging and relative-pose work for GNSS-degraded navigation, including anchor/tag network configuration, range logging, calibration, anomaly analysis, and estimator-ready measurement modeling.
+              UWB sensor evaluation for collaborative navigation and resilient PNT: anchor/tag network configuration, range logging, calibration, anomaly analysis, and estimator-ready measurement modeling for GNSS-degraded operation.
             </p>
           </div>
         </article>
@@ -242,7 +242,7 @@
     <section id="stack" class="section stack-section">
       <div class="section-heading wide">
         <p class="eyebrow">Technical stack</p>
-        <h2>Tools I can defend in an interview.</h2>
+        <h2>Tools and methods I have worked with.</h2>
       </div>
       <div class="stack-grid">
         <article>
@@ -268,7 +268,7 @@
           <ul>
             <li>Dynasty plant model testing for vehicle controls</li>
             <li>SITL/HITL workflows, telemetry, and command pipelines</li>
-            <li>PyChrono/SolidWorks dynamics import for thrust-stand analysis</li>
+            <li>CAD-derived inertia review for thrust-stand analysis</li>
             <li>NX Nastran, FEA/CFD workflow documentation, Git/Linux</li>
           </ul>
         </article>
@@ -313,8 +313,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan. Built as a recruiter-facing engineering portfolio.</p>
-    <p><a href="docs/website_research_notes.md">Design research notes</a></p>
+    <p>© 2026 Malhar Mahajan.</p>
   </footer>
 
   <script src="script.js?v=20260425b" defer></script>

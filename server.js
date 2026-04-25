@@ -10,6 +10,7 @@ const MESSAGE_LOG = path.join(DATA_DIR, "contact-messages.jsonl");
 const MAX_BODY_BYTES = 16 * 1024;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 6;
+const DEFAULT_CONTACT_TO = "malhar05@vt.edu";
 
 const mimeTypes = new Map([
   [".html", "text/html; charset=utf-8"],
@@ -29,6 +30,37 @@ const mimeTypes = new Map([
 ]);
 
 const rateBuckets = new Map();
+
+async function loadDotEnv() {
+  const envPath = path.join(ROOT, ".env");
+  let raw;
+  try {
+    raw = await fs.readFile(envPath, "utf8");
+  } catch (error) {
+    if (error.code !== "ENOENT") console.error(error);
+    return;
+  }
+
+  for (const line of raw.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+
+    const separator = trimmed.indexOf("=");
+    if (separator === -1) continue;
+
+    const key = trimmed.slice(0, separator).trim();
+    let value = trimmed.slice(separator + 1).trim();
+    if (!key || process.env[key] !== undefined) continue;
+
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+    process.env[key] = value;
+  }
+}
 
 function sendJson(res, status, payload) {
   const body = JSON.stringify(payload);
@@ -112,10 +144,12 @@ async function storeMessage(message, req) {
 
 async function maybeSendEmail(message) {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO || process.env.RESEND_TO;
+  const to = process.env.CONTACT_TO || process.env.RESEND_TO || DEFAULT_CONTACT_TO;
   const from = process.env.CONTACT_FROM || "Portfolio <onboarding@resend.dev>";
 
-  if (!apiKey || !to) return false;
+  if (!apiKey) {
+    return { sent: false, reason: "missing_resend_api_key" };
+  }
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -137,7 +171,8 @@ async function maybeSendEmail(message) {
     throw new Error(`Resend failed: ${response.status} ${text}`);
   }
 
-  return true;
+  const data = await response.json().catch(() => ({}));
+  return { sent: true, providerId: data.id || null };
 }
 
 async function handleContact(req, res) {
@@ -168,13 +203,22 @@ async function handleContact(req, res) {
 
   try {
     const id = await storeMessage(validated.value, req);
-    let emailSent = false;
+    let delivery = { sent: false, reason: "unknown" };
     try {
-      emailSent = await maybeSendEmail(validated.value);
+      delivery = await maybeSendEmail(validated.value);
     } catch (error) {
       console.error(error);
+      delivery = { sent: false, reason: "provider_error" };
     }
-    sendJson(res, 200, { message: "Message accepted.", id, emailSent });
+    const status = delivery.sent ? 200 : 503;
+    sendJson(res, status, {
+      message: delivery.sent
+        ? "Message sent."
+        : "Email delivery is not configured. Use the direct email link.",
+      id,
+      emailSent: delivery.sent,
+      emailReason: delivery.reason || null,
+    });
   } catch (error) {
     console.error(error);
     sendJson(res, 500, { message: "Could not save message." });
@@ -243,6 +287,10 @@ const server = http.createServer(async (req, res) => {
   await serveStatic(req, res);
 });
 
-server.listen(PORT, () => {
-  console.log(`Portfolio server running at http://localhost:${PORT}`);
+loadDotEnv().then(() => {
+  server.listen(PORT, () => {
+    const emailStatus = process.env.RESEND_API_KEY ? "enabled" : "not configured";
+    console.log(`Portfolio server running at http://localhost:${PORT}`);
+    console.log(`Contact email delivery: ${emailStatus}`);
+  });
 });

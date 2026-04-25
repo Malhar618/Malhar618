@@ -47,6 +47,15 @@ if (sections.length && sectionLinks.length) {
 
 const contactForm = document.querySelector("#contact-form");
 const statusEl = document.querySelector("#status");
+const directEmail = "malhar05@vt.edu";
+
+function showEmailFallback(payload) {
+  const mailto = new URL(`mailto:${directEmail}`);
+  mailto.searchParams.set("subject", payload.subject || "Portfolio contact");
+  mailto.searchParams.set("body", `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
+  statusEl.innerHTML = `Email service is not configured on this server. <a href="${mailto.toString()}">Open an email draft instead.</a>`;
+  statusEl.classList.add("error");
+}
 
 if (contactForm && statusEl) {
   contactForm.addEventListener("submit", async (event) => {
@@ -72,13 +81,15 @@ if (contactForm && statusEl) {
 
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
+        if (response.status === 503) {
+          showEmailFallback(payload);
+          return;
+        }
         throw new Error(data.message || "Message failed");
       }
 
       contactForm.reset();
-      statusEl.textContent = data.emailSent
-        ? "Message sent. I will follow up by email."
-        : "Message saved locally. Email delivery is not configured on this environment.";
+      statusEl.textContent = "Message sent. I will follow up by email.";
       statusEl.classList.add("success");
     } catch (error) {
       console.error(error);
