@@ -3,9 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Malhar Mahajan is a Virginia Tech aerospace engineering student focused on guidance, navigation, controls, embedded systems, and autonomous vehicle validation." />
+  <meta name="description" content="Malhar Mahajan is an aerospace engineering student at Virginia Tech (accelerated B.S./M.S.) working on navigation, vehicle controls, and autonomous systems." />
+  <meta name="theme-color" content="#18202a" />
+  <link rel="canonical" href="https://malhar618.github.io/Malhar618/" />
+  <meta property="og:title" content="Malhar Mahajan | GNC, Embedded Controls, Autonomous Systems" />
+  <meta property="og:description" content="Virginia Tech aerospace engineer (accelerated B.S./M.S.): UWB navigation research, Caterpillar embedded controls, NAVAIR Fellowship thrust-stand testbed, GoAERO avionics lead." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://malhar618.github.io/Malhar618/" />
+  <meta property="og:image" content="https://malhar618.github.io/Malhar618/images/og_image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Malhar Mahajan | GNC, Embedded Controls, Autonomous Systems</title>
-  <link rel="stylesheet" href="styles.css?v=20260425h" />
+  <link rel="preload" as="image" href="images/hero_1920.webp" />
+  <link rel="stylesheet" href="styles.css?v=20260711b" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -13,7 +22,7 @@
 
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a class="nav-brand" href="index.html" aria-label="Malhar Mahajan home">
+      <a class="nav-brand" href="./" aria-label="Malhar Mahajan home">
         <span class="brand-mark">MM</span>
         <span>Malhar Mahajan</span>
       </a>
@@ -24,12 +33,11 @@
         <span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="#proof">Snapshot</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="classes">Education</a></li>
         <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a class="nav-cta" href="contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -39,146 +47,131 @@
       <div class="hero-media" role="img" aria-label="Three degree of freedom UAV thrust stand in the Virginia Tech controls lab"></div>
       <div class="hero-scrim"></div>
       <div class="hero-inner">
-        <p class="eyebrow">Virginia Tech Aerospace Engineering · GNC concentration · GPA 3.85</p>
+        <p class="eyebrow">Virginia Tech Aerospace Engineering · Accelerated B.S./M.S.</p>
         <h1>Malhar Mahajan</h1>
         <p class="hero-lede">
-          Controls, estimation, and embedded autonomy for vehicles that have to work outside the demo.
+          I work on navigation, vehicle controls, and autonomous systems: UWB ranging research in the CARNATIONS Lab, embedded controls at Caterpillar, and UAV testbeds at Virginia Tech.
         </p>
         <div class="hero-actions" aria-label="Primary actions">
           <a class="button button-primary" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
           <a class="button button-secondary" href="#work">Selected work</a>
         </div>
         <ul class="hero-facts" aria-label="Quick facts">
-          <li><strong>GNC / embedded controls</strong><span>2027 internship target</span></li>
+          <li><strong>GNC concentration</strong><span>GPA 3.90 / 4.00</span></li>
           <li><strong>C/C++ · MATLAB/Simulink · Python</strong><span>daily toolchain</span></li>
-          <li><strong>May 2027</strong><span>B.S. Aerospace Engineering</span></li>
+          <li><strong>B.S. May 2027 · M.S. 2028</strong><span>2027 internship target</span></li>
         </ul>
       </div>
     </section>
 
-    <section id="proof" class="section proof-band">
+    <section id="highlights" class="section proof-band">
       <div class="section-heading">
-        <p class="eyebrow">Snapshot</p>
-        <h2>Current engineering work.</h2>
+        <h2>Highlights</h2>
       </div>
       <div class="proof-grid">
-        <article class="proof-card">
-          <span class="proof-number">CAT</span>
-          <h3>Embedded controls</h3>
-          <p>Structural/thermal simulation, then embedded controls in Caterpillar Technology.</p>
-        </article>
-        <article class="proof-card">
-          <span class="proof-number">AVA</span>
-          <h3>CARNATIONS UWB research</h3>
-          <p>Working with Dr. Mathieu Joerger on resilient PNT and UWB inter-vehicle ranging models.</p>
-        </article>
-        <article class="proof-card">
-          <span class="proof-number">ACSL</span>
-          <h3>NAVAIR thrust stand</h3>
-          <p>Controls, hardware integration, and AirTalent presentation for Dr. L'Afflitto's lab.</p>
-        </article>
-        <article class="proof-card">
+        <a class="proof-card" href="projects/uwb_navigation">
+          <span class="proof-number">5.99 cm</span>
+          <h3>UWB relative-pose RMSE</h3>
+          <p>3-link estimator fused with GPS, resolved 81 of 81 vehicle frames. CARNATIONS Lab.</p>
+        </a>
+        <a class="proof-card" href="experience/caterpillar">
+          <span class="proof-number">ABS</span>
+          <h3>V-model delivery at Caterpillar</h3>
+          <p>Brake-based ABS function: requirements, MIL, generated C, SIL/HIL, machine-test planning.</p>
+        </a>
+        <a class="proof-card" href="research/goaero">
           <span class="proof-number">$30K</span>
-          <h3>NASA prize team</h3>
-          <p>Avionics/programming lead on GoAERO @ Virginia Tech.</p>
-        </article>
+          <h3>NASA University Innovation Prize</h3>
+          <p>Avionics and programming team lead, GoAERO @ Virginia Tech.</p>
+        </a>
+        <a class="proof-card" href="projects/thrust_stand">
+          <span class="proof-number">28.7%</span>
+          <h3>Thrust-stand mass reduction</h3>
+          <p>FEA-guided redesign (19.67 to 14.02 kg) that fixed yaw-motor stalls. NAVAIR Fellowship.</p>
+        </a>
       </div>
-    </section>
-
-    <section class="section intent-panel" aria-labelledby="intent-title">
-      <div>
-        <p class="eyebrow">Direction</p>
-        <h2 id="intent-title">Aerospace systems, sensors, and dynamics.</h2>
-      </div>
-      <p>
-        I am drawn to problems where physical modeling, sensing, estimation, controls, and embedded implementation all matter. The specific platform can change: aircraft, ground vehicles, robotics, or test equipment. The engineering habit is the same: understand the dynamics, instrument the system, and validate the result against hardware or a credible simulation.
-      </p>
     </section>
 
     <section id="work" class="section">
       <div class="section-heading wide">
-        <p class="eyebrow">Selected work</p>
-        <h2>Projects I can talk through technically.</h2>
-        <p>
-          A few representative systems where I had to connect theory, software, hardware constraints, and validation.
-        </p>
+        <h2>Selected work</h2>
       </div>
 
       <div class="feature-list">
-        <article class="feature-card feature-card-large">
+        <article class="feature-card">
           <div class="feature-copy">
-            <p class="project-type">AVA Lab / CARNATIONS</p>
-            <h3>UWB sensor evaluation for collaborative navigation</h3>
+            <p class="project-type">CARNATIONS Lab · Dr. Joerger</p>
+            <h3>UWB collaborative navigation</h3>
             <p>
-              Undergraduate research with Dr. Mathieu Joerger in AVA Lab, connected to CARNATIONS work on resilient positioning, navigation, and timing. I focus on DWM1001C UWB ranging data, calibration, error behavior, and estimator-ready measurement models for collaborative navigation.
+              Undergraduate research in Dr. Mathieu Joerger's group, part of the CARNATIONS center for resilient positioning, navigation, and timing. I work on UWB ranging between vehicles so they can localize each other when GNSS is degraded or untrusted.
             </p>
             <ul class="evidence-list">
-              <li>Characterized antenna-delay bias, multipath, dropouts, and outliers across static and vehicle runs.</li>
-              <li>Built MATLAB logging/parsing tools for distance-only payloads and relative-pose simulation geometry.</li>
-              <li>Calibrated range correction and exported bias/noise/outlier models for estimator work.</li>
+              <li>Implemented a 3-link relative-pose estimator (candidate roots + WLS/MAP prior) reinforced by GPS; resolved 81/81 GPS-aligned vehicle frames with 5.99 cm mean fit RMSE.</li>
+              <li>Calibrated SS-TWR ranging across 7,553 outdoor samples (1.65&ndash;30.39 m), cutting leave-one-distance-out RMSE from 8.9 cm to 3.7 cm.</li>
+              <li>Extended COTS UWB range from 30 m to 100 m by rewriting DWM1001 firmware for a lower bit rate and longer preamble.</li>
             </ul>
             <div class="tag-row">
-              <span>DWM1001C</span>
+              <span>DWM1001</span>
               <span>MATLAB</span>
               <span>SS-TWR</span>
-              <span>Kalman filtering</span>
+              <span>WLS/MAP estimation</span>
             </div>
-            <a class="text-link" href="projects/uwb_navigation.html">Read UWB case study</a>
+            <a class="text-link" href="projects/uwb_navigation">Read the UWB case study</a>
           </div>
           <figure class="feature-media">
-            <img src="images/uwb_calibration_overview.png" alt="UWB calibration overview plot with measured and corrected range behavior" />
-            <figcaption>Range calibration output from local UWB analysis tooling.</figcaption>
+            <img src="images/uwb_calibration_overview.webp" alt="UWB calibration overview plot with measured and corrected range behavior" width="1400" height="900" loading="lazy" decoding="async" />
+            <figcaption>Range calibration output from my UWB analysis tooling.</figcaption>
           </figure>
         </article>
 
-        <article class="feature-card feature-card-large reverse">
+        <article class="feature-card reverse">
           <div class="feature-copy">
-            <p class="project-type">Controls testbed</p>
+            <p class="project-type">ACSL · NAVAIR Fellowship</p>
             <h3>Three-DOF thrust stand for UAV controller tuning</h3>
             <p>
-              Undergraduate research with Dr. L'Afflitto on a NAVAIR-funded thrust-stand system for small UAVs, integrating Pixhawk 6C, Odroid M1S, ROS 2 Galactic, Dynamixel actuation, and MATLAB genetic-algorithm workflows for inner-loop tuning.
+              Research in Dr. L'Afflitto's Advanced Control Systems Lab under a NAVAIR Fellowship. The stand holds a small UAV in roll, pitch, and yaw so controllers can be tuned on hardware without flight risk.
             </p>
             <ul class="evidence-list">
-              <li>Implemented C++ ROS 2 nodes for Dynamixel moment cancellation using rigid-body inertia models.</li>
-              <li>Worked from CAD-derived dynamics and inertia estimates to understand motor constraints.</li>
-              <li>Presented the research at the AirTalent Symposium and documented setup, wiring, data logging, GA workflow, and troubleshooting for future lab teams.</li>
+              <li>Wrote C++ ROS 2 nodes for Dynamixel-actuated moment cancellation using rigid-body inertia and moment models, on a Pixhawk 6C + Odroid M1S running ROS 2 Galactic.</li>
+              <li>Helped drive the redesign that cut stand mass 28.7% (19.67 to 14.02 kg) and lowered the yaw torque requirement from 10.59 to 7.13 N·m, fixing motor stalls.</li>
+              <li>Implemented the MATLAB genetic-algorithm workflow for inner-loop PID tuning and performance-index evaluation.</li>
             </ul>
             <div class="tag-row">
               <span>ROS 2</span>
               <span>C++</span>
               <span>Pixhawk 6C</span>
-              <span>MATLAB GA</span>
+              <span>MATLAB</span>
             </div>
-            <a class="text-link" href="projects/thrust_stand.html">Read thrust stand case study</a>
+            <a class="text-link" href="projects/thrust_stand">Read the thrust stand case study</a>
           </div>
           <figure class="feature-media">
-            <img src="images/thrust_stand_web.jpg" alt="Three degree of freedom thrust stand with UAV mounted in a controls lab" />
+            <img src="images/thrust_stand_900.webp" alt="Three degree of freedom thrust stand with UAV mounted in a controls lab" width="900" height="1200" loading="lazy" decoding="async" />
             <figcaption>ACSL thrust stand with UAV mounted for controller validation.</figcaption>
           </figure>
         </article>
 
         <div class="compact-grid">
           <article class="compact-card">
-            <img src="images/cat_dozer_web.jpg" alt="Caterpillar heavy equipment in a company facility" />
+            <img src="images/cat_dozer_900.webp" alt="Caterpillar heavy equipment in a company facility" width="900" height="1200" loading="lazy" decoding="async" />
             <div>
               <p class="project-type">Embedded vehicle controls</p>
               <h3>Caterpillar controls co-op</h3>
               <p>
-                Building modular Simulink control models for traction control, ABS, and VSA workflows: wheel-speed target generation, error conventions, machine-state estimator interfaces, filters, Dynasty plant validation, and embedded C feasibility testing.
+                Modular Simulink controls for braking, traction, and stability functions with AUTOSAR-ready interfaces. Plant co-simulation against Dynasty, and V-model delivery of a brake-based ABS function from requirements through SIL/HIL.
               </p>
-              <a class="text-link" href="experience/caterpillar.html">See Caterpillar experience</a>
+              <a class="text-link" href="experience/caterpillar">Caterpillar experience</a>
             </div>
           </article>
 
           <article class="compact-card">
-            <img src="images/drone_web.jpg" alt="Autonomous quadrotor with Jetson Nano and sensors mounted on a table" />
+            <img src="images/drone_900.webp" alt="Autonomous quadrotor with Jetson Nano and sensors mounted on a table" width="900" height="1200" loading="lazy" decoding="async" />
             <div>
               <p class="project-type">Autonomous UAV</p>
               <h3>Depth-based autonomy stack</h3>
               <p>
-                Built a quadrotor around Jetson Nano, Intel RealSense D455, Python/OpenCV, MAVSDK, and SITL/HITL validation for obstacle avoidance, target tracking, and flight-control integration.
+                A quadrotor built on a Jetson Nano and Intel RealSense D455: depth-based mapping, obstacle avoidance, and target tracking in Python/OpenCV, validated in jMAVSim, SITL, and HITL.
               </p>
-              <a class="text-link" href="projects/autonomous_uav.html">Read UAV case study</a>
+              <a class="text-link" href="projects/autonomous_uav">UAV case study</a>
             </div>
           </article>
         </div>
@@ -187,78 +180,109 @@
 
     <section id="experience" class="section">
       <div class="section-heading">
-        <p class="eyebrow">Engineering history</p>
-        <h2>Controls, simulation, navigation, and lab work.</h2>
+        <h2>Experience</h2>
       </div>
       <div class="timeline">
         <article class="timeline-item">
-          <time>Aug 2025 - Present</time>
-          <div>
-            <h3>Embedded Controls Co-op · Caterpillar Technology</h3>
-            <p>
-              Model-based vehicle controls in Simulink with production-code constraints: modular wheel-speed generation, sensing integration across IMU and wheel-speed rates, filter/error convention work, Dynasty plant testing, and Simulink-generated C for early ECM timing checks.
-            </p>
-          </div>
-        </article>
-        <article class="timeline-item">
           <time>Jan 2026 - Present</time>
           <div>
-            <h3>AVA Lab · Dr. Mathieu Joerger · CARNATIONS UWB research</h3>
+            <h3>Undergraduate Researcher · CARNATIONS Lab (Dr. Mathieu Joerger)</h3>
             <p>
-              UWB sensor evaluation for collaborative navigation and resilient PNT: anchor/tag network configuration, range logging, calibration, anomaly analysis, and estimator-ready measurement modeling for GNSS-degraded operation.
+              UWB collaborative navigation research: logging pipelines, ranging calibration, relative-pose estimation, and custom module firmware. Presented at the Dennis Dean Undergraduate Research Conference.
             </p>
+            <a class="text-link" href="projects/uwb_navigation">Case study</a>
           </div>
         </article>
         <article class="timeline-item">
-          <time>Aug 2024 - Aug 2025</time>
+          <time>Aug 2025 - Present</time>
           <div>
-            <h3>Advanced Controls Systems Laboratory · Dr. L'Afflitto</h3>
+            <h3>Embedded Controls Co-op · Caterpillar Technology Division</h3>
             <p>
-              Undergraduate research on the NAVAIR-funded three-DOF thrust-stand testbed, GA controller tuning workflow, ROS 2 + Dynamixel integration, Pixhawk/Odroid hardware work, IMU signal processing, and AirTalent Symposium presentation.
+              Model-based vehicle controls in Simulink: modular braking/traction/stability components with AUTOSAR-ready interfaces, Dynasty plant co-simulation with Stateflow drive cycles, brake/slip PID tuning, and V-model delivery of a brake-based ABS function through MIL, generated C, SIL/HIL, and machine-test planning.
             </p>
+            <a class="text-link" href="experience/caterpillar">Details</a>
           </div>
         </article>
         <article class="timeline-item">
           <time>May 2025 - Aug 2025</time>
           <div>
-            <h3>Simulations Intern · Caterpillar GTMS / LPSD</h3>
+            <h3>Simulations Intern · Caterpillar GTMS</h3>
             <p>
-              Structural, thermal, and CFD simulation support for cooling systems; NX Nastran workflow development and comparison against legacy solver workflows for heavy-equipment components.
+              Thermal and CFD analyses supporting cooling-system design decisions, and work that helped the group adopt NX Nastran workflows.
             </p>
+            <a class="text-link" href="experience/caterpillar">Details</a>
           </div>
         </article>
         <article class="timeline-item">
           <time>Aug 2024 - Sep 2025</time>
           <div>
-            <h3>Team Lead, Avionics and Programming · GoAERO @ VT</h3>
+            <h3>Team Lead, Avionics and Programming · GoAERO @ Virginia Tech</h3>
             <p>
-              Led avionics/software integration for a rescue UAV concept, defining ROS 2 messaging, flight-stack interfaces, sensor integration, onboard compute plans, and SITL/HITL validation steps.
+              Led avionics and software integration for a rescue UAV concept: ROS 2 interfaces between flight stack, sensors, and onboard compute, plus a SITL/HITL validation workflow. Contributed to a $30K NASA University Innovation Prize.
             </p>
+            <a class="text-link" href="research/goaero">Details</a>
           </div>
+        </article>
+        <article class="timeline-item">
+          <time>Aug 2024 - Aug 2025</time>
+          <div>
+            <h3>Undergraduate Researcher · ACSL (Dr. L'Afflitto) · NAVAIR Fellowship</h3>
+            <p>
+              Three-DOF thrust-stand testbed for autonomous controller tuning: Pixhawk/Odroid integration and IMU signal processing validated against logged data. Presented at the AirTalent Symposium at NAVAIR Patuxent River, Maryland.
+            </p>
+            <a class="text-link" href="projects/thrust_stand">Case study</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section education-band">
+      <div class="section-heading">
+        <h2>Education</h2>
+      </div>
+      <div class="education-grid">
+        <article>
+          <h3>B.S. Aerospace Engineering</h3>
+          <p class="edu-meta">Guidance, Control &amp; Navigation concentration · May 2027 · GPA 3.90/4.00</p>
+          <p>Kevin T. Crofton Department of Aerospace &amp; Ocean Engineering, Virginia Tech.</p>
+        </article>
+        <article>
+          <h3>M.S. Aerospace Engineering (thesis)</h3>
+          <p class="edu-meta">Accelerated B.S./M.S. · expected 2028</p>
+          <p>Thesis direction: navigation, sensor fusion, estimation, and controls for autonomous systems.</p>
+        </article>
+        <article>
+          <h3>Relevant coursework</h3>
+          <div class="tag-row">
+            <span>Robot Perception</span>
+            <span>Sensors &amp; Algorithms for Autonomous Navigation</span>
+            <span>State-Space Control</span>
+            <span>Spacecraft PNT &amp; Orbit Determination</span>
+          </div>
+          <a class="text-link" href="classes">Full coursework</a>
         </article>
       </div>
     </section>
 
     <section id="stack" class="section stack-section">
       <div class="section-heading wide">
-        <p class="eyebrow">Technical stack</p>
-        <h2>Tools and methods I have worked with.</h2>
+        <h2>Skills</h2>
       </div>
       <div class="stack-grid">
         <article>
-          <h3>Modeling and estimation</h3>
+          <h3>Estimation and navigation</h3>
           <ul>
-            <li>Kalman-filter measurement modeling and innovation gating</li>
-            <li>UWB bias/noise/outlier characterization</li>
-            <li>Machine-state estimator interfaces and filtering</li>
-            <li>MATLAB scripts for parsing, diagnostics, and validation plots</li>
+            <li>Relative-pose estimation with WLS/MAP priors, GNSS/UWB fusion</li>
+            <li>UWB sensor characterization: bias, dropouts, outliers, LOS/NLOS</li>
+            <li>SS-TWR calibration and error analysis on outdoor datasets</li>
+            <li>MATLAB pipelines for logging, parsing, and diagnostics</li>
           </ul>
         </article>
         <article>
           <h3>Controls and embedded</h3>
           <ul>
-            <li>Simulink model architecture and code generation</li>
-            <li>Traction control, ABS, VSA, and actuator-aware target generation</li>
+            <li>Simulink model architecture, Stateflow, code generation</li>
+            <li>Braking, traction, and stability control with AUTOSAR-ready interfaces</li>
             <li>C/C++ ROS 2 nodes, PX4/ArduPilot interfaces, MAVSDK</li>
             <li>Pixhawk 6C, Odroid M1S, Jetson Nano, RealSense D455</li>
           </ul>
@@ -266,56 +290,41 @@
         <article>
           <h3>Simulation and validation</h3>
           <ul>
-            <li>Dynasty plant model testing for vehicle controls</li>
-            <li>SITL/HITL workflows, telemetry, and command pipelines</li>
-            <li>CAD-derived inertia review for thrust-stand analysis</li>
-            <li>NX Nastran, FEA/CFD workflow documentation, Git/Linux</li>
+            <li>Plant co-simulation (Simulink + Dynasty) with drive-cycle scenarios</li>
+            <li>V-model verification: requirements, MIL, generated C, SIL/HIL</li>
+            <li>SITL/HITL and jMAVSim workflows, telemetry and command pipelines</li>
+            <li>NX Nastran, thermal/CFD support work, Git, Linux</li>
           </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section current-focus">
-      <div>
-        <p class="eyebrow">Current build direction</p>
-        <h2>What I am sharpening next.</h2>
-      </div>
-      <div class="focus-grid">
-        <article>
-          <h3>Estimator-ready UWB</h3>
-          <p>Move from cleaned ranging streams to measurement models that can be fused with inertial and vehicle-motion dynamics.</p>
-        </article>
-        <article>
-          <h3>Modular Simulink controls</h3>
-          <p>Keep traction, braking, and stability control components reusable across brake, clutch, and electric-motor actuation paths.</p>
-        </article>
-        <article>
-          <h3>Simulink MCP bridge</h3>
-          <p>Prototype Claude-to-Simulink workflows for navigating, organizing, and inspecting model artifacts without hiding engineering assumptions.</p>
         </article>
       </div>
     </section>
 
     <section class="section contact-cta" aria-labelledby="contact-title">
       <div>
-        <p class="eyebrow">2027 internship cycle</p>
-        <h2 id="contact-title">I am looking for teams building autonomy that has to work outside a demo.</h2>
+        <h2 id="contact-title">Get in touch</h2>
         <p>
-          Best-fit teams: positioning, GNC, embedded controls, robotics simulation, flight software, AV/ADAS, defense autonomy, and sensor-fusion validation.
+          I'm looking for Summer 2027 internships in GNC, navigation, and embedded vehicle controls. U.S. person (permanent resident).
         </p>
       </div>
       <div class="cta-actions">
-        <a class="button button-primary" href="contact.html">Start a conversation</a>
+        <a class="button button-primary" href="contact">Contact form</a>
         <a class="button button-secondary" href="mailto:malhar05@vt.edu">malhar05@vt.edu</a>
-        <a class="button button-ghost" href="https://www.linkedin.com/in/malhar-mahajan" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="button button-ghost" href="https://www.linkedin.com/in/malhar-mahajan-9a6728208/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan.</p>
+    <p>© 2026 Malhar Mahajan</p>
+    <ul class="footer-links" aria-label="Footer links">
+      <li><a href="mailto:malhar05@vt.edu">Email</a></li>
+      <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/malhar-mahajan-9a6728208/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="classes">Education</a></li>
+    </ul>
   </footer>
 
-  <script src="script.js?v=20260425b" defer></script>
+  <script src="script.js?v=20260711b" defer></script>
 </body>
 </html>

@@ -22,6 +22,8 @@ const mimeTypes = new Map([
   [".jpg", "image/jpeg"],
   [".jpeg", "image/jpeg"],
   [".gif", "image/gif"],
+  [".webp", "image/webp"],
+  [".ico", "image/x-icon"],
   [".svg", "image/svg+xml"],
   [".mov", "video/quicktime"],
   [".mp4", "video/mp4"],
@@ -226,11 +228,25 @@ async function handleContact(req, res) {
 }
 
 function safeStaticPath(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0]);
+  let decoded;
+  try {
+    decoded = decodeURIComponent(urlPath.split("?")[0]);
+  } catch {
+    return null;
+  }
   const normalized = path.normalize(decoded).replace(/^(\.\.[/\\])+/, "");
   const requested = normalized === "/" ? "/index.html" : normalized;
   const filePath = path.join(ROOT, requested);
-  if (!filePath.startsWith(ROOT)) return null;
+  if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) return null;
+
+  // Windows resolves paths case-insensitively, so compare lowercased segments.
+  const segments = path.relative(ROOT, filePath).split(path.sep).map((s) => s.toLowerCase());
+  const blockedDirs = new Set(["data", "node_modules"]);
+  const blockedFiles = new Set(["server.js", "package.json", "package-lock.json"]);
+  if (segments.some((segment) => segment.startsWith("."))) return null;
+  if (segments.length && blockedDirs.has(segments[0])) return null;
+  if (segments.length === 1 && blockedFiles.has(segments[0])) return null;
+
   return filePath;
 }
 
@@ -243,7 +259,20 @@ async function serveStatic(req, res) {
   }
 
   try {
-    const stat = await fs.stat(filePath);
+    let stat;
+    try {
+      stat = await fs.stat(filePath);
+    } catch (error) {
+      // Extensionless URLs (e.g. /contact) resolve to their .html file,
+      // matching GitHub Pages behavior in production.
+      if (error.code === "ENOENT" && !path.extname(filePath)) {
+        stat = await fs.stat(`${filePath}.html`);
+        req.url = `${(req.url || "").split("?")[0]}.html`;
+        await serveStatic(req, res);
+        return;
+      }
+      throw error;
+    }
     if (stat.isDirectory()) {
       req.url = `${req.url?.replace(/\/$/, "")}/index.html`;
       await serveStatic(req, res);
@@ -268,23 +297,29 @@ async function serveStatic(req, res) {
 }
 
 const server = http.createServer(async (req, res) => {
-  if (req.url === "/api/health") {
-    sendJson(res, 200, { ok: true });
-    return;
-  }
+  try {
+    if (req.url === "/api/health") {
+      sendJson(res, 200, { ok: true });
+      return;
+    }
 
-  if ((req.url || "").split("?")[0] === "/favicon.ico") {
-    res.writeHead(204, { "Cache-Control": "public, max-age=86400" });
-    res.end();
-    return;
-  }
+    if ((req.url || "").split("?")[0] === "/favicon.ico") {
+      res.writeHead(204, { "Cache-Control": "public, max-age=86400" });
+      res.end();
+      return;
+    }
 
-  if (req.url === "/api/contact") {
-    await handleContact(req, res);
-    return;
-  }
+    if (req.url === "/api/contact") {
+      await handleContact(req, res);
+      return;
+    }
 
-  await serveStatic(req, res);
+    await serveStatic(req, res);
+  } catch (error) {
+    console.error(error);
+    if (!res.headersSent) res.writeHead(500);
+    res.end("Internal server error");
+  }
 });
 
 loadDotEnv().then(() => {
