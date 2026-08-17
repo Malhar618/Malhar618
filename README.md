@@ -1,48 +1,22 @@
-# Malhar Mahajan Portfolio
+# Malhar Mahajan
 
-Personal engineering portfolio for GNC, embedded controls, autonomous systems, and vehicle simulation roles.
+Aerospace engineering student at Virginia Tech — accelerated B.S./M.S., Guidance, Control & Navigation concentration, GPA 3.90. I work on navigation, vehicle controls, and autonomous systems.
 
-## Run Locally
+**Currently:** UWB collaborative-navigation research in the CARNATIONS Lab (Dr. Joerger) · Embedded Controls Co-op at Caterpillar
 
-```bash
-npm start
-```
+**Portfolio:** [malhar618.github.io/Malhar618](https://malhar618.github.io/Malhar618/) · **Resume:** [PDF](https://malhar618.github.io/Malhar618/resume.pdf) · **LinkedIn:** [malhar-mahajan](https://www.linkedin.com/in/malhar-mahajan-9a6728208/) · **Email:** malhar05@vt.edu
 
-Open `http://localhost:8080`.
+## Selected work
 
-The backend is intentionally dependency-free Node.js:
+- **[UWB collaborative navigation](https://malhar618.github.io/Malhar618/projects/uwb_navigation)** — 3-link relative-pose estimator (WLS/MAP prior) fused with GPS: 81/81 vehicle frames at 5.99 cm mean RMSE; SS-TWR calibration on 7,553 outdoor samples (8.9 → 3.7 cm); firmware range extension 30 → 100 m
+- **[3-DOF thrust stand](https://malhar618.github.io/Malhar618/projects/thrust_stand)** ([repo](https://github.com/Malhar618/thruststand)) — NAVAIR Fellowship testbed for UAV controller tuning: C++ ROS 2 moment cancellation, FEA-guided redesign that cut mass 28.7%
+- **[Caterpillar embedded controls](https://malhar618.github.io/Malhar618/experience/caterpillar)** — modular Simulink braking/traction/stability components with AUTOSAR-ready interfaces; V-model delivery of a brake-based ABS function through MIL, generated C, SIL/HIL
+- **[GoAERO avionics](https://malhar618.github.io/Malhar618/research/goaero)** — avionics/programming team lead; $30K NASA University Innovation Prize
 
-- `GET /api/health` returns service status.
-- `POST /api/contact` validates contact form payloads, applies a small in-memory rate limit, rejects honeypot spam, stores messages in `data/contact-messages.jsonl`, and optionally sends email through Resend.
+**Tools:** C/C++ · Python · MATLAB/Simulink · ROS 2 · PX4/MAVSDK · Stateflow · Linux · Git
 
-## Optional Email Delivery
+Looking for Summer 2027 internships in GNC, navigation, and embedded vehicle controls. U.S. person (permanent resident).
 
-Copy `.env.example` to `.env`, add a Resend API key, then restart the server:
+---
 
-```bash
-cp .env.example .env
-```
-
-Required values:
-
-```bash
-RESEND_API_KEY=re_...
-CONTACT_TO=malhar05@vt.edu
-CONTACT_FROM="Portfolio <verified-sender@example.com>"
-```
-
-`CONTACT_TO` defaults to `malhar05@vt.edu`. Without `RESEND_API_KEY`, the server returns a clear email-not-configured response and the contact page offers a prefilled email draft link instead of claiming the message was sent.
-
-## Content Strategy
-
-The site is built around concise engineering signals, and every factual claim traces to a source document (resume, poster, report, or signed form):
-
-- CARNATIONS Lab (Dr. Mathieu Joerger) UWB collaborative navigation: 3-link relative-pose estimator (81/81 frames, 5.99 cm RMSE), 7,553-sample SS-TWR calibration (8.9 to 3.7 cm), 30 m to 100 m firmware range extension, Dennis Dean conference presentation
-- Caterpillar embedded controls co-op (kept public-safe: no program identifiers) and GTMS thermal/CFD internship
-- ACSL three-DOF thrust stand under the NAVAIR Fellowship: 28.7% mass reduction, ROS 2/Dynamixel moment cancellation, AirTalent Symposium presentation at NAVAIR Patuxent River
-- GoAERO avionics leadership with the $30K NASA University Innovation Prize
-- Accelerated B.S./M.S.: B.S. May 2027, thesis M.S. expected 2028, GPA 3.90
-
-Old URLs (`experience.html`, `experience/caterpillar_coop.html`, `research/*.html` stubs) are instant meta-refresh redirects to their consolidated pages.
-
-See `docs/website_research_notes.md` for the research notes behind the redesign.
+<sub>This repo is also the source for the portfolio site — see [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for how it runs.</sub>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://malhar618.github.io/Malhar618/sitemap.xml
