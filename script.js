@@ -5,8 +5,19 @@ const sections = [...document.querySelectorAll("main section[id]")];
 
 function setActiveLink(hash) {
   sectionLinks.forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("href") === hash);
+    const isActive = link.getAttribute("href") === hash;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
+}
+
+function closeMenu() {
+  navMenu.classList.remove("is-open");
+  navToggle.setAttribute("aria-expanded", "false");
 }
 
 if (navToggle && navMenu) {
@@ -19,8 +30,25 @@ if (navToggle && navMenu) {
     if (event.target instanceof HTMLAnchorElement) {
       const href = event.target.getAttribute("href") || "";
       if (href.startsWith("#")) setActiveLink(href);
-      navMenu.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      navMenu.classList.contains("is-open") &&
+      event.target instanceof Node &&
+      !navMenu.contains(event.target) &&
+      !navToggle.contains(event.target)
+    ) {
+      closeMenu();
     }
   });
 }
@@ -43,6 +71,16 @@ if (sections.length && sectionLinks.length) {
   });
   if (window.location.hash) setActiveLink(window.location.hash);
   updateActiveFromScroll();
+}
+
+const siteHeader = document.querySelector(".site-header");
+
+if (siteHeader) {
+  const updateHeaderShadow = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+  updateHeaderShadow();
 }
 
 const contactForm = document.querySelector("#contact-form");

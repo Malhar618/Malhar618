@@ -3,36 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Three-DOF UAV thrust stand case study by Malhar Mahajan." />
+  <meta name="description" content="Three-DOF UAV thrust stand built under a NAVAIR Fellowship in Virginia Tech's Advanced Control Systems Lab: ROS 2, Dynamixel moment cancellation, and genetic-algorithm controller tuning." />
+  <meta name="theme-color" content="#18202a" />
   <title>Three-DOF Thrust Stand | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260425h" />
+  <link rel="stylesheet" href="../styles.css?v=20260711b" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <a class="nav-brand" href="../"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="../index.html#proof">Snapshot</a></li>
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../classes">Education</a></li>
         <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="../contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
     <section class="detail-hero">
-      <p class="eyebrow">Controls testbed</p>
+      <p class="eyebrow">ACSL · NAVAIR Fellowship</p>
       <h1>Three-DOF thrust stand for UAV controller tuning.</h1>
       <p>
-        Undergraduate research with Dr. L'Afflitto on a NAVAIR-funded ACSL project to renovate a physical UAV testbed and close the loop between control design, embedded actuation, and repeatable lab validation.
+        Undergraduate research in Dr. L'Afflitto's Advanced Control Systems Lab under a NAVAIR Fellowship, with Colleen Piccolo and Jack McGuire. We rebuilt the lab's three-axis UAV testbed and used it to tune controllers on real hardware. August 2024 to August 2025.
       </p>
     </section>
 
@@ -40,38 +40,40 @@
       <article class="detail-copy">
         <h2>Problem</h2>
         <p>
-          Tuning UAS controllers directly in flight is slow and risky. Under Dr. L'Afflitto, our undergraduate research focused on a NAVAIR-funded testbed that could expose roll, pitch, and yaw behavior while keeping the aircraft constrained and measurable.
+          Tuning UAV controllers in free flight is slow and risky. The stand holds a drone at the intersection of three nested rings, so roll, pitch, and yaw stay measurable and constrained while controllers run against real actuators and real inertia.
         </p>
 
         <h2>What I Built</h2>
         <ul>
-          <li>Helped redesign, reassemble, rewire, and document a lighter three-degree-of-freedom thrust stand after prior yaw-axis inertia created motor-load problems.</li>
-          <li>Integrated Pixhawk 6C with an Odroid M1S running ROS 2 Galactic and the ACSL flight stack.</li>
-          <li>Implemented C++ ROS 2 nodes for Dynamixel current control and moment cancellation using inertia and rigid-body moment models.</li>
-          <li>Supported MATLAB genetic-algorithm workflows for inner-loop PID tuning and performance-index evaluation.</li>
+          <li>Torque-tested the Dynamixel MX-106T on a custom test stand against its datasheet and computed inertia matrices from SolidWorks models to root-cause yaw-axis motor stalls.</li>
+          <li>Helped drive the FEA-guided redesign that cut stand mass 28.7% (19.67 to 14.02 kg) and dropped the yaw torque requirement from 10.59 to 7.13 N·m, bringing it inside the motor's capability.</li>
+          <li>Rewired, reassembled, and documented the rebuilt stand.</li>
+          <li>Integrated a Pixhawk 6C with an Odroid M1S running ROS 2 Galactic and the ACSL flight stack; wrote C++ ROS 2 nodes for Dynamixel-actuated moment cancellation from rigid-body inertia and moment models.</li>
+          <li>Implemented IMU signal processing with high-pass filtering to derive acceleration from published position/velocity topics, validated against logged data.</li>
+          <li>Implemented the MATLAB genetic-algorithm workflow for inner-loop PID tuning and performance-index evaluation.</li>
         </ul>
 
         <figure>
-          <img src="../images/thrust_stand_web.jpg" alt="UAV mounted inside a three degree of freedom thrust stand" />
+          <img src="../images/thrust_stand_900.webp" alt="UAV mounted inside a three degree of freedom thrust stand" width="900" height="1200" loading="lazy" decoding="async" />
           <figcaption>The renovated thrust stand with the UAV mounted at the center of rotation.</figcaption>
         </figure>
 
         <h2>Engineering Detail</h2>
         <p>
-          The software stack connected PX4 vehicle odometry, Dynamixel MX-series current commands, filtered body-rate derivatives, and inertia matrices for the UAV and thrust-stand rings. The control code used torque computation terms of the form I alpha plus omega cross I omega, then mapped command torques into motor-current limits.
+          The software stack connected PX4 vehicle odometry, Dynamixel MX-series commands, filtered body-rate derivatives, and inertia matrices for the UAV and thrust-stand rings. Control torques came from rigid-body terms of the form I&alpha; + &omega; &times; I&omega;, checked against the motors' torque limits. Axis characterization used sinusoidal and step-input tests driven by C++ scripts on the Dynamixel SDK, with MATLAB post-processing of the logged responses.
         </p>
         <p>
-          In simulation and setup review, the project used CAD-derived body properties to reason about body frames, inertia, center-of-mass placement, and actuation constraints before relying on hardware tests.
+          Before trusting hardware tests, the team worked from CAD-derived body properties to reason about body frames, inertia, center-of-mass placement, and actuation constraints.
         </p>
 
         <figure>
-          <img src="../images/thrust_team_web.jpg" alt="ACSL student team standing with the completed thrust stand" />
+          <img src="../images/thrust_team_900.webp" alt="ACSL student team standing with the completed thrust stand" width="900" height="686" loading="lazy" decoding="async" />
           <figcaption>ACSL team photo after the thrust stand rebuild.</figcaption>
         </figure>
 
         <h2>Outcome</h2>
         <p>
-          The project produced a usable setup manual, hardware wiring guidance, ROS 2 build/run workflow, data logging procedure, troubleshooting path, and a foundation for iterative controller tuning experiments. I also presented this research through the AirTalent Symposium.
+          The project produced a working, lighter testbed and a setup manual covering wiring, the ROS 2 build/run workflow, data logging, and troubleshooting for later lab teams. I presented the research at the AirTalent Symposium at NAVAIR Patuxent River, Maryland.
         </p>
       </article>
 
@@ -79,10 +81,11 @@
         <section class="detail-card">
           <h2>Project Snapshot</h2>
           <dl>
-            <div><dt>Role</dt><dd>Undergraduate researcher, controls/software/hardware integration</dd></div>
-            <div><dt>Hardware</dt><dd>Pixhawk 6C, Odroid M1S, Dynamixel, UAV thrust stand</dd></div>
+            <div><dt>Role</dt><dd>Undergraduate researcher · Aug 2024 - Aug 2025</dd></div>
+            <div><dt>Program</dt><dd>NAVAIR Fellowship, ACSL (Dr. L'Afflitto)</dd></div>
+            <div><dt>Hardware</dt><dd>Pixhawk 6C, Odroid M1S, Dynamixel MX-106T, 3-DOF stand</dd></div>
             <div><dt>Software</dt><dd>ROS 2 Galactic, C++, MATLAB</dd></div>
-            <div><dt>Focus</dt><dd>NAVAIR-funded thrust stand, moment cancellation, GA tuning, AirTalent presentation</dd></div>
+            <div><dt>Headline</dt><dd>28.7% mass cut; yaw torque need 10.59 &rarr; 7.13 N·m</dd></div>
           </dl>
         </section>
         <section class="evidence-card">
@@ -98,9 +101,13 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan.</p>
-    <p><a href="../index.html#work">Back to work</a></p>
+    <p>© 2026 Malhar Mahajan</p>
+    <ul class="footer-links" aria-label="Footer links">
+      <li><a href="mailto:malhar05@vt.edu">Email</a></li>
+      <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="../#work">Back to work</a></li>
+    </ul>
   </footer>
-  <script src="../script.js?v=20260425b" defer></script>
+  <script src="../script.js?v=20260711b" defer></script>
 </body>
 </html>

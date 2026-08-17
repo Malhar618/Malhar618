@@ -3,67 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Autonomous UAV case study by Malhar Mahajan." />
+  <meta name="description" content="Autonomous UAV project by Malhar Mahajan: Jetson Nano, Intel RealSense D455, depth-based obstacle avoidance, YOLOv5 detection, and MAVSDK flight-control integration." />
+  <meta name="theme-color" content="#18202a" />
   <title>Autonomous UAV | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260425h" />
+  <link rel="stylesheet" href="../styles.css?v=20260711b" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <a class="nav-brand" href="../"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="../index.html#proof">Snapshot</a></li>
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../classes">Education</a></li>
         <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="../contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
     <section class="detail-hero">
-      <p class="eyebrow">Autonomous UAV</p>
+      <p class="eyebrow">Personal project · May - Aug 2024</p>
       <h1>Depth-based mapping, obstacle avoidance, and flight-control integration.</h1>
       <p>
-        A quadrotor project built around Jetson Nano, Intel RealSense D455, Python/OpenCV, MAVSDK, and simulation-first validation.
+        A quadrotor built around Jetson Nano, Intel RealSense D455, Python/OpenCV, MAVSDK, and simulation-first validation.
       </p>
     </section>
 
     <div class="detail-layout">
       <article class="detail-copy">
-        <h2>Problem</h2>
+        <h2>Background</h2>
         <p>
-          I wanted a project that forced autonomy code to interact with real sensors, flight-control APIs, and the constraints of a small airframe instead of stopping at a desktop simulation.
+          I wanted to run autonomy code against real sensors, a real flight controller, and the limits of a small airframe, not just a desktop simulation.
         </p>
 
         <h2>Implementation</h2>
         <ul>
           <li>Integrated a Jetson Nano and Intel RealSense D455 for real-time depth perception.</li>
-          <li>Used Python/OpenCV for depth-based mapping, obstacle detection, target tracking, and simple gesture-recognition commands.</li>
-          <li>Connected autonomy logic to MAVSDK flight-control interfaces and validated behavior through JMavSim plus SITL/HITL workflows before flight testing.</li>
-          <li>Modeled the drone in CAD and used basic airflow/thermal reasoning to understand stability and hardware placement constraints.</li>
+          <li>Used Python/OpenCV for depth-based mapping, obstacle detection, and target tracking, with YOLOv5 models for onboard object detection.</li>
+          <li>Connected autonomy logic to MAVSDK flight-control interfaces and validated behavior through jMAVSim plus SITL/HITL workflows before flight testing.</li>
         </ul>
 
         <figure>
-          <img src="../images/drone_web.jpg" alt="Autonomous quadrotor with onboard sensors and electronics" />
+          <img src="../images/drone_900.webp" alt="Autonomous quadrotor with onboard sensors and electronics" width="900" height="1200" loading="lazy" decoding="async" />
           <figcaption>Autonomous quadrotor hardware stack during integration.</figcaption>
         </figure>
 
-        <h2>Why It Matters</h2>
-        <p>
-          This project connects directly to the internship roles I am targeting: perception and autonomy code has to be validated against flight-control behavior, compute limits, sensor placement, and repeatable test conditions.
-        </p>
-
         <figure>
           <video controls preload="metadata" src="../videos/uav_flight.mov"></video>
-          <figcaption>Flight-test media from the project archive.</figcaption>
+          <figcaption>Flight-test footage.</figcaption>
         </figure>
       </article>
 
@@ -71,16 +65,17 @@
         <section class="detail-card">
           <h2>Project Snapshot</h2>
           <dl>
+            <div><dt>Dates</dt><dd>May 2024 - August 2024</dd></div>
             <div><dt>Compute</dt><dd>Jetson Nano</dd></div>
-            <div><dt>Sensing</dt><dd>Intel RealSense D455, IMU/GPS stack</dd></div>
-            <div><dt>Software</dt><dd>Python, OpenCV, MAVSDK, SITL/HITL</dd></div>
+            <div><dt>Sensing</dt><dd>Intel RealSense D455</dd></div>
+            <div><dt>Software</dt><dd>Python, OpenCV, YOLOv5, MAVSDK, SITL/HITL</dd></div>
             <div><dt>Focus</dt><dd>Obstacle avoidance, target tracking, validation</dd></div>
           </dl>
         </section>
         <section class="evidence-card">
           <h2>Related GNC Repo</h2>
           <p>
-            My Hermes2Helios workspace continues the same direction with Simulink EKF/control scaffolding, PX4 interfaces, SITL/HIL structure, swarm/perception stubs, and hardware/test documentation.
+            My Hermes2Helios workspace continues this direction on the GNC side: PX4 interfaces, simulation structure, and hardware/test documentation.
           </p>
           <ul class="link-list">
             <li><a href="https://github.com/Malhar618/Hermes2Helios" target="_blank" rel="noopener">Hermes2Helios repository</a></li>
@@ -91,9 +86,13 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan.</p>
-    <p><a href="../index.html#work">Back to work</a></p>
+    <p>© 2026 Malhar Mahajan</p>
+    <ul class="footer-links" aria-label="Footer links">
+      <li><a href="mailto:malhar05@vt.edu">Email</a></li>
+      <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="../#work">Back to work</a></li>
+    </ul>
   </footer>
-  <script src="../script.js?v=20260425b" defer></script>
+  <script src="../script.js?v=20260711b" defer></script>
 </body>
 </html>

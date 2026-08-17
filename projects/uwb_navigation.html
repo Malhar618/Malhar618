@@ -3,36 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="UWB collaborative navigation case study by Malhar Mahajan." />
+  <meta name="description" content="UWB collaborative navigation research by Malhar Mahajan: SS-TWR calibration, relative-pose estimation, and firmware range extension in the CARNATIONS Lab at Virginia Tech." />
+  <meta name="theme-color" content="#18202a" />
   <title>UWB Collaborative Navigation | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260425h" />
+  <link rel="stylesheet" href="../styles.css?v=20260711b" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <a class="nav-brand" href="../"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="../index.html#proof">Snapshot</a></li>
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../classes">Education</a></li>
         <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="../contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
     <section class="detail-hero">
-      <p class="eyebrow">AVA Lab / CARNATIONS</p>
-      <h1>UWB sensor evaluation for collaborative navigation.</h1>
+      <p class="eyebrow">CARNATIONS Lab · Dr. Joerger</p>
+      <h1>UWB collaborative navigation for resilient PNT.</h1>
       <p>
-        Undergraduate research with Joey Cahill in Dr. Mathieu Joerger's Assured Vehicle Autonomy Lab, connected to CARNATIONS work on resilient positioning, navigation, and timing.
+        Undergraduate research with Joey Cahill in Dr. Mathieu Joerger's group (AVA Lab) at Virginia Tech, through the CARNATIONS center for resilient positioning, navigation, and timing. January 2026 to present.
       </p>
     </section>
 
@@ -40,38 +40,49 @@
       <article class="detail-copy">
         <h2>Problem</h2>
         <p>
-          AVA Lab designs and tests multisensor navigation, tracking, and mapping methods for automated air and ground vehicles. CARNATIONS extends that direction into resilient PNT for transportation systems, including GNSS interference, spoofing risk, and alternative sensing. My project asks whether commercial UWB modules can provide useful inter-vehicle ranging constraints when GNSS is degraded or untrusted.
+          GNSS can be jammed, spoofed, or blocked. My project asks whether commercial UWB modules can give vehicles a useful way to range off each other, so they can still localize together when GNSS is degraded or untrusted.
         </p>
 
         <h2>My Contribution</h2>
         <ul>
-          <li>Configured DWM1001C anchor/tag networks and collected static, vehicle, and calibration ranging data.</li>
-          <li>Built MATLAB logging and parsing tools for DWM1001 location/ranging payloads, including distance-only packet semantics.</li>
-          <li>Analyzed bias, RMSE, spike rate, outlier windows, and session-specific shifts across multiple geometry and distance cases.</li>
-          <li>Worked toward estimator-ready bias, noise, and outlier models so UWB can support collaborative navigation and integrity-aware sensor fusion.</li>
+          <li>Built DWM1001 BLE/serial data-logging pipelines and MATLAB parsing/analysis tooling for ranging streams, including 3-link (A1&ndash;B1 / A2&ndash;B2 / A3&ndash;B3) vehicle datasets and GPS/UWB comparison plots.</li>
+          <li>Calibrated SS-TWR ranging against surveyed distances on a multi-thousand-sample outdoor campaign.</li>
+          <li>Implemented a 3-link relative-pose estimator (candidate roots + WLS/MAP prior) reinforced by GPS data.</li>
+          <li>Rewrote module firmware for a lower bit rate and longer preamble to extend usable range.</li>
+          <li>Quantified bias, dropouts, and outliers across geometries and LOS/NLOS conditions to feed an estimator-ready error model.</li>
         </ul>
 
         <figure>
-          <img src="../images/uwb_calibration_overview.png" alt="UWB calibration plot comparing measured and corrected ranges" />
+          <img src="../images/uwb_calibration_overview.webp" alt="UWB calibration plot comparing measured and corrected ranges" width="1400" height="900" loading="lazy" decoding="async" />
           <figcaption>Calibration analysis used to turn raw ranging behavior into a runtime correction and measurement model.</figcaption>
         </figure>
 
         <h2>Measured Results</h2>
         <p>
-          Poster results show practical UWB operation extended from about 31 m to 110 m, with a scheduled ranging framework. A piecewise correction reduced cross-validation MAE from 0.110 m to 0.058 m. A later one-to-one calibration workflow selected a second-order runtime correction and improved CV RMSE by 36.71% over a linear baseline.
+          On the poster we presented, a piecewise calibration correction reduced cross-validation MAE from 0.110 m to 0.058 m, and the rewritten scheduled-ranging firmware extended practical operation from about 30 m to 100 m (110 m in the longest tests). The follow-on calibration campaign put harder numbers on it: 7,553 outdoor samples across 1.65&ndash;30.39 m, with leave-one-distance-out RMSE dropping from 8.9 cm to 3.7 cm after correction.
         </p>
         <p>
-          Static one-to-one analysis covered four runs with 1,779-1,797 samples per run. RMSE ranged from roughly 0.063 m to 0.113 m, and the 2.0 m tests exposed a session-specific bias sign flip, which is exactly the kind of systematic behavior that has to be modeled before feeding ranges into an estimator.
+          On top of the calibrated ranging, the 3-link relative-pose estimator (candidate roots with a WLS/MAP prior, reinforced by GPS) resolved all 81 GPS-aligned vehicle frames with 5.99 cm mean UWB fit RMSE.
         </p>
 
         <figure>
-          <img src="../images/uwb_heading_vector.png" alt="Relative heading vector diagram for multi-transceiver UWB geometry" />
+          <img src="../images/uwb_intersection_3node.gif" alt="Animation of three-link UWB range intersections resolving a relative pose between two vehicles" width="3000" height="1950" loading="lazy" decoding="async" />
+          <figcaption>Three-link range intersection geometry resolving relative pose between vehicle frames.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/uwb_heading_vector.png" alt="Relative heading vector diagram for multi-transceiver UWB geometry" width="1421" height="1077" loading="lazy" decoding="async" />
           <figcaption>Multi-transceiver geometry used to reason about relative range and heading constraints.</figcaption>
         </figure>
 
+        <h2>Presentation</h2>
+        <p>
+          I presented this research at the Dennis Dean Undergraduate Research Conference at Virginia Tech. The underlying poster, with Joey Cahill, is <em>Resilient Collaborative Navigation Using Intervehicle Ultra-Wideband Ranging in GNSS-Degraded Environments</em>.
+        </p>
+
         <h2>Next Validation Step</h2>
         <p>
-          The next technical step is to move from calibrated pairwise ranging into synchronized multi-node tests, then validate the measurement model against inertial data, vehicle motion, and CARNATIONS-style resilient PNT requirements.
+          The next step is fusion: combine calibrated UWB ranging with inertial and vehicle-motion models in an EKF or particle filter for cooperative localization, and characterize accuracy against anchor layout and vehicle dynamics.
         </p>
       </article>
 
@@ -79,12 +90,11 @@
         <section class="detail-card">
           <h2>Project Snapshot</h2>
           <dl>
-            <div><dt>Role</dt><dd>Researcher, logging/calibration/analysis</dd></div>
-            <div><dt>Lab</dt><dd>AVA Lab, Dr. Mathieu Joerger</dd></div>
-            <div><dt>Program context</dt><dd>CARNATIONS resilient PNT and UWB sensor evaluation</dd></div>
-            <div><dt>Hardware</dt><dd>Qorvo/Decawave DWM1001C UWB modules</dd></div>
-            <div><dt>Methods</dt><dd>SS-TWR, bias modeling, outlier analysis, relative-pose geometry</dd></div>
-            <div><dt>Tools</dt><dd>MATLAB, firmware logs, CSV diagnostics, Kalman-filter measurement modeling</dd></div>
+            <div><dt>Role</dt><dd>Undergraduate Researcher · Jan 2026 - Present</dd></div>
+            <div><dt>Lab</dt><dd>CARNATIONS Lab / AVA Lab, Dr. Mathieu Joerger</dd></div>
+            <div><dt>Hardware</dt><dd>Qorvo/Decawave DWM1001 UWB modules</dd></div>
+            <div><dt>Methods</dt><dd>SS-TWR calibration, WLS/MAP relative-pose estimation, bias/outlier analysis</dd></div>
+            <div><dt>Tools</dt><dd>MATLAB, custom module firmware, BLE/serial logging</dd></div>
           </dl>
         </section>
         <section class="evidence-card">
@@ -93,7 +103,7 @@
           <ul class="link-list">
             <li><a href="../assets/JoeyMalharPoster.pptx">Poster source PPTX</a></li>
             <li><a href="https://autonomyandrobotics.centers.vt.edu/groups/ava.html" target="_blank" rel="noopener">AVA Lab overview</a></li>
-            <li><a href="https://www.iitcarnations.org/education-and-workforce-development" target="_blank" rel="noopener">CARNATIONS UWB sensor evaluation</a></li>
+            <li><a href="https://www.iitcarnations.org/" target="_blank" rel="noopener">CARNATIONS center</a></li>
             <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub profile</a></li>
           </ul>
         </section>
@@ -102,9 +112,13 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan.</p>
-    <p><a href="../index.html#work">Back to work</a></p>
+    <p>© 2026 Malhar Mahajan</p>
+    <ul class="footer-links" aria-label="Footer links">
+      <li><a href="mailto:malhar05@vt.edu">Email</a></li>
+      <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="../#work">Back to work</a></li>
+    </ul>
   </footer>
-  <script src="../script.js?v=20260425b" defer></script>
+  <script src="../script.js?v=20260711b" defer></script>
 </body>
 </html>

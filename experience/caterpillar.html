@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Caterpillar simulation and embedded controls experience by Malhar Mahajan." />
+  <meta name="description" content="Caterpillar experience of Malhar Mahajan: embedded controls co-op in the Technology Division and a GTMS simulations internship." />
+  <meta name="theme-color" content="#18202a" />
   <title>Caterpillar Experience | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260425h" />
+  <link rel="stylesheet" href="../styles.css?v=20260711b" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a class="nav-brand" href="../index.html"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
+      <a class="nav-brand" href="../"><span class="brand-mark">MM</span><span>Malhar Mahajan</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="sr-only">Menu</span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="../index.html#proof">Snapshot</a></li>
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../classes">Education</a></li>
         <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a class="nav-cta" href="../contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="../contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -30,61 +30,55 @@
   <main id="main">
     <section class="detail-hero">
       <p class="eyebrow">Caterpillar</p>
-      <h1>Simulation discipline plus embedded controls implementation.</h1>
+      <h1>Embedded controls and simulation at Caterpillar.</h1>
       <p>
-        Two Caterpillar rotations gave me both sides of engineering judgment: physics-backed analysis in GTMS/LPSD and model-based control development in Caterpillar Technology.
+        Two rotations: thermal/CFD simulation in GTMS in summer 2025, then model-based embedded controls in the Technology Division from August 2025 on.
       </p>
     </section>
 
     <div class="detail-layout">
       <article class="detail-copy">
-        <h2>Embedded Controls Co-op · Caterpillar Technology</h2>
+        <h2>Embedded Controls Co-op · Technology Division · Aug 2025 - Present</h2>
         <p>
-          In my current co-op, I work on modular Simulink controls for traction control, ABS, and vehicle-stability functions. The work centers on making control components reusable across different actuation paths: brake based, clutch based, electric motor, and related machine configurations.
+          I work on model-based vehicle controls in Simulink under production-code constraints: braking, traction, stability, and machine-state estimation functions built as modular software components that stay reusable across steering and propulsion variants.
         </p>
         <ul>
-          <li>Architected situational speed target generators and wheel-level control logic for scenario-specific traction behavior.</li>
-          <li>Worked on machine-state estimator interfaces, filters, and error conventions so a modular wheel-speed generator can serve multiple vehicle-control systems.</li>
-          <li>Developed multi-rate sensing integration concepts for IMU and wheel-speed streams with different sampling rates.</li>
-          <li>Used Dynasty plant models to test model behavior, reduce oscillations seen in data, and account for actuator physical constraints.</li>
-          <li>Generated embedded C from Simulink for early ECM timing and sampling-rate feasibility checks.</li>
+          <li>Refactored controls into reusable Simulink components with AUTOSAR-ready port interfaces shared across vehicle variants.</li>
+          <li>I own V-model delivery for a single-channel brake-based ABS function: requirements, I/O definition, MIL, generated C, SIL/HIL, and machine-test planning.</li>
+          <li>Built C++ SIL regression tests for the brake controller code.</li>
+          <li>Built a dual-channel traction-control plant co-simulation (Simulink + Dynasty) with Stateflow drive cycles that ramp vehicle speed and sweep road-friction coefficients to stress slip response.</li>
+          <li>Tuned brake/slip PID logic around legacy truck braking limits; reduced oscillations seen in real data by accounting for actuator physical constraints.</li>
+          <li>Earlier in the co-op: situational speed target generators and wheel-level control logic, multi-rate sensing integration for IMU and wheel-speed streams, and Simulink-generated C for early ECM timing and sampling-rate feasibility checks.</li>
         </ul>
 
         <figure>
-          <img src="../images/cat_dozer_web.jpg" alt="Caterpillar heavy equipment in a company facility" />
-          <figcaption>Caterpillar experience across simulation, heavy-equipment context, and embedded controls workflows.</figcaption>
+          <img src="../images/cat_dozer_900.webp" alt="Caterpillar heavy equipment in a company facility" width="900" height="1200" loading="lazy" decoding="async" />
+          <figcaption>Heavy-equipment context for the controls and simulation work.</figcaption>
         </figure>
 
-        <h2>GTMS Simulation Internship · LPSD</h2>
+        <h2>Simulations Intern · GTMS · May 2025 - Aug 2025</h2>
         <p>
-          In summer 2025, I supported Global Thermal Management Systems design decisions through structural, thermal, and CFD simulation work on cooling products. The strongest engineering lesson was how solver setup, boundary conditions, documentation, and cross-functional reviews control whether simulation results are useful.
+          In summer 2025 I supported Global Thermal Management Systems design decisions with thermal and CFD analyses for cooling systems.
         </p>
         <ul>
-          <li>Performed finite-element analysis on cooling-system components and lifting/operational load cases.</li>
-          <li>Compared NX Nastran workflows against legacy solver approaches and documented setup techniques.</li>
-          <li>Helped accelerate adoption of NX Nastran workflows across the group.</li>
-          <li>Participated in structural reviews and cross-functional engineering meetings.</li>
+          <li>Ran thermal/CFD analyses that fed cooling-system design decisions.</li>
+          <li>Helped the simulation group adopt NX Nastran workflows.</li>
         </ul>
-
-        <h2>What Transfers to Autonomy Roles</h2>
-        <p>
-          Recruiters looking at AV, robotics, or GNC roles should see a consistent thread: I can reason from plant behavior and sensor data to deployable model-based code, then validate that code against physical constraints instead of treating simulation as a black box.
-        </p>
       </article>
 
       <aside class="detail-sidebar">
         <section class="detail-card">
-          <h2>Project Snapshot</h2>
+          <h2>Experience Snapshot</h2>
           <dl>
-            <div><dt>Domains</dt><dd>Embedded controls, simulation, heavy equipment</dd></div>
-            <div><dt>Tools</dt><dd>MATLAB/Simulink, generated C, Dynasty plant models, NX Nastran</dd></div>
-            <div><dt>Signals</dt><dd>Multi-rate sensing, filters, estimator interfaces, model validation</dd></div>
-            <div><dt>Target roles</dt><dd>Embedded controls, autonomy simulation, vehicle controls</dd></div>
+            <div><dt>Roles</dt><dd>Embedded Controls Co-op · Simulations Intern</dd></div>
+            <div><dt>Tools</dt><dd>MATLAB/Simulink, Stateflow, generated C, C++, Dynasty, NX Nastran</dd></div>
+            <div><dt>Methods</dt><dd>AUTOSAR-ready interfaces, MIL/SIL/HIL, plant co-simulation, PID tuning</dd></div>
+            <div><dt>Target roles</dt><dd>Embedded controls, vehicle controls, autonomy simulation</dd></div>
           </dl>
         </section>
         <section class="evidence-card">
-          <h2>Resume Anchor</h2>
-          <p>The public portfolio keeps Caterpillar details at a non-proprietary level and avoids publishing internal confidential material.</p>
+          <h2>Note</h2>
+          <p>This page keeps Caterpillar details at a non-proprietary level.</p>
           <ul class="link-list">
             <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume PDF</a></li>
           </ul>
@@ -94,9 +88,13 @@
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Malhar Mahajan.</p>
-    <p><a href="../index.html#experience">Back to experience</a></p>
+    <p>© 2026 Malhar Mahajan</p>
+    <ul class="footer-links" aria-label="Footer links">
+      <li><a href="mailto:malhar05@vt.edu">Email</a></li>
+      <li><a href="https://github.com/Malhar618" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="../#experience">Back to experience</a></li>
+    </ul>
   </footer>
-  <script src="../script.js?v=20260425b" defer></script>
+  <script src="../script.js?v=20260711b" defer></script>
 </body>
 </html>

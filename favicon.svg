@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#18202a"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="13" fill="#18202a" stroke="#c95f29" stroke-width="3"/>
   <text x="32" y="39" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#fffdf9">MM</text>
 </svg>
