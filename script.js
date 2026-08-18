@@ -73,16 +73,6 @@ if (sections.length && sectionLinks.length) {
   updateActiveFromScroll();
 }
 
-const siteHeader = document.querySelector(".site-header");
-
-if (siteHeader) {
-  const updateHeaderShadow = () => {
-    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
-  };
-  window.addEventListener("scroll", updateHeaderShadow, { passive: true });
-  updateHeaderShadow();
-}
-
 const contactForm = document.querySelector("#contact-form");
 const statusEl = document.querySelector("#status");
 const directEmail = "malhar05@vt.edu";
@@ -91,7 +81,7 @@ function showEmailFallback(payload) {
   const mailto = new URL(`mailto:${directEmail}`);
   mailto.searchParams.set("subject", payload.subject || "Portfolio contact");
   mailto.searchParams.set("body", `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
-  statusEl.innerHTML = `This site can't send mail directly. <a href="${mailto.toString()}">Open a pre-filled email draft instead</a> &mdash; your message is carried over.`;
+  statusEl.innerHTML = `This site can't send mail directly. <a href="${mailto.toString()}">Open a pre-filled email draft instead</a>. Your message is carried over.`;
 }
 
 if (contactForm && statusEl) {
