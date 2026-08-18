@@ -73,16 +73,6 @@ if (sections.length && sectionLinks.length) {
   updateActiveFromScroll();
 }
 
-const siteHeader = document.querySelector(".site-header");
-
-if (siteHeader) {
-  const updateHeaderShadow = () => {
-    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
-  };
-  window.addEventListener("scroll", updateHeaderShadow, { passive: true });
-  updateHeaderShadow();
-}
-
 const contactForm = document.querySelector("#contact-form");
 const statusEl = document.querySelector("#status");
 const directEmail = "malhar05@vt.edu";
@@ -91,8 +81,7 @@ function showEmailFallback(payload) {
   const mailto = new URL(`mailto:${directEmail}`);
   mailto.searchParams.set("subject", payload.subject || "Portfolio contact");
   mailto.searchParams.set("body", `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
-  statusEl.innerHTML = `Email service is not configured on this server. <a href="${mailto.toString()}">Open an email draft instead.</a>`;
-  statusEl.classList.add("error");
+  statusEl.innerHTML = `This site can't send mail directly. <a href="${mailto.toString()}">Open a pre-filled email draft instead</a>. Your message is carried over.`;
 }
 
 if (contactForm && statusEl) {
@@ -118,12 +107,14 @@ if (contactForm && statusEl) {
       });
 
       const data = await response.json().catch(() => ({}));
+      if (response.status === 400 && data.message) {
+        statusEl.textContent = data.message;
+        statusEl.classList.add("error");
+        return;
+      }
       if (!response.ok) {
-        if (response.status === 503) {
-          showEmailFallback(payload);
-          return;
-        }
-        throw new Error(data.message || "Message failed");
+        showEmailFallback(payload);
+        return;
       }
 
       contactForm.reset();
@@ -131,8 +122,7 @@ if (contactForm && statusEl) {
       statusEl.classList.add("success");
     } catch (error) {
       console.error(error);
-      statusEl.textContent = "The form could not send right now. Email me directly at malhar05@vt.edu.";
-      statusEl.classList.add("error");
+      showEmailFallback(payload);
     }
   });
 }

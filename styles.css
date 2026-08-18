@@ -12,9 +12,6 @@
   --orange-deep: #8f3f16;
   --green: #287d68;
   --blue: #2d6a9f;
-  --shadow-sm: 0 8px 24px rgba(24, 32, 42, 0.06);
-  --shadow-md: 0 14px 40px rgba(24, 32, 42, 0.1);
-  --shadow: var(--shadow-md);
   --radius: 8px;
   --max-width: 1180px;
 }
@@ -97,14 +94,8 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(247, 244, 238, 0.91);
+  background: var(--paper);
   border-bottom: 1px solid rgba(24, 32, 42, 0.12);
-  backdrop-filter: blur(16px);
-  transition: box-shadow 0.25s ease;
-}
-
-.site-header.is-scrolled {
-  box-shadow: 0 6px 24px rgba(24, 32, 42, 0.09);
 }
 
 .navbar {
@@ -405,13 +396,16 @@ section[id] {
 }
 
 .stack-grid article,
-.education-grid article,
+.education-grid article {
+  border-top: 2px solid var(--ink);
+  padding: 1rem 0 0;
+}
+
 .detail-card,
 .evidence-card {
   background: var(--paper-strong);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
 }
 
 .proof-card {
@@ -478,7 +472,6 @@ a.proof-card:hover h3 {
   background: var(--paper-strong);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
 }
 
 .feature-card.reverse {
@@ -493,11 +486,13 @@ a.proof-card:hover h3 {
   padding: clamp(1rem, 2.4vw, 2rem);
 }
 
-.project-type {
+.project-type,
+.feature-copy .project-type,
+.compact-card .project-type {
   margin: 0 0 0.55rem;
-  color: var(--blue);
+  color: var(--steel-dark);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -586,7 +581,6 @@ a.proof-card:hover h3 {
   background: var(--paper-strong);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
 }
 
 .compact-card img {
@@ -639,9 +633,6 @@ a.proof-card:hover h3 {
   gap: 1rem;
 }
 
-.stack-grid article {
-  padding: 1.25rem;
-}
 
 .stack-grid ul {
   margin: 0.85rem 0 0;
@@ -683,9 +674,6 @@ a.proof-card:hover h3 {
   gap: 1rem;
 }
 
-.education-grid article {
-  padding: 1.25rem;
-}
 
 .education-grid h3 {
   font-size: 1.12rem;
@@ -856,7 +844,6 @@ a.proof-card:hover h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.25rem;
-  box-shadow: 0 12px 36px rgba(24, 32, 42, 0.08);
 }
 
 .contact-panel h2,
@@ -938,7 +925,6 @@ a.proof-card:hover h3 {
     background: var(--paper-strong);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
   }
 
   .nav-menu.is-open {
