@@ -1,22 +1,16 @@
 # Malhar Mahajan
 
-Aerospace engineering student at Virginia Tech: accelerated B.S./M.S., Guidance, Control & Navigation concentration, GPA 3.90. I work on navigation, vehicle controls, and autonomous systems.
+Hey, I'm an aerospace engineering student at Virginia Tech (accelerated B.S./M.S., guidance, navigation & control). I spend most of my time trying to get sensors, controllers, and vehicles to cooperate: UWB navigation research in the CARNATIONS Lab, embedded controls co-op at Caterpillar.
 
-**Currently:** UWB collaborative-navigation research in the CARNATIONS Lab (Dr. Joerger) and an Embedded Controls Co-op at Caterpillar.
+I've got some fairly niche engineering projects on here if you want to poke around:
 
-**Portfolio:** [malhar618.github.io/Malhar618](https://malhar618.github.io/Malhar618/) · **Resume:** [PDF](https://malhar618.github.io/Malhar618/resume.pdf) · **LinkedIn:** [malhar-mahajan](https://www.linkedin.com/in/malhar-mahajan-9a6728208/) · **Email:** malhar05@vt.edu
+- **[UWB collaborative navigation](https://malhar618.github.io/Malhar618/projects/uwb_navigation)** — getting two vehicles to figure out where they are relative to each other with commercial UWB modules when GPS can't be trusted. Currently at 5.99 cm mean error across 81 test frames, which I'm pretty happy about
+- **[thruststand](https://github.com/Malhar618/thruststand)** — we bolted a drone into a three-ring gimbal so we could tune its controllers without crashing it ([full writeup](https://malhar618.github.io/Malhar618/projects/thrust_stand)). NAVAIR Fellowship project; the yaw motor kept stalling until an FEA-guided redesign cut the stand's mass 28.7%
+- **[Autonomous UAV](https://malhar618.github.io/Malhar618/projects/autonomous_uav)** — Jetson Nano quadrotor that maps and dodges obstacles with a depth camera
+- At Caterpillar I build modular ABS/traction control in Simulink and take it from requirements through SIL/HIL ([the public-safe version](https://malhar618.github.io/Malhar618/experience/caterpillar))
 
-## Selected work
+The rest lives on my portfolio: **[malhar618.github.io/Malhar618](https://malhar618.github.io/Malhar618/)** — resume's there too.
 
-- **[UWB collaborative navigation](https://malhar618.github.io/Malhar618/projects/uwb_navigation)**: 3-link relative-pose estimator (WLS/MAP prior) fused with GPS, 81/81 vehicle frames at 5.99 cm mean RMSE; SS-TWR calibration on 7,553 outdoor samples (8.9 to 3.7 cm); firmware range extension from 30 m to 100 m
-- **[3-DOF thrust stand](https://malhar618.github.io/Malhar618/projects/thrust_stand)** ([repo](https://github.com/Malhar618/thruststand)): NAVAIR Fellowship testbed for UAV controller tuning; C++ ROS 2 moment cancellation; FEA-guided redesign that cut mass 28.7%
-- **[Caterpillar embedded controls](https://malhar618.github.io/Malhar618/experience/caterpillar)**: modular Simulink braking/traction/stability components with AUTOSAR-ready interfaces; V-model delivery of a brake-based ABS function through MIL, generated C, and SIL/HIL
-- **[GoAERO avionics](https://malhar618.github.io/Malhar618/research/goaero)**: avionics/programming team lead; $30K NASA University Innovation Prize
+Looking for Summer 2027 internships in GNC, navigation, or embedded controls. U.S. person (permanent resident). Say hi: malhar05@vt.edu or [LinkedIn](https://www.linkedin.com/in/malhar-mahajan-9a6728208/)
 
-**Tools:** C/C++ · Python · MATLAB/Simulink · ROS 2 · PX4/MAVSDK · Stateflow · Linux · Git
-
-Looking for Summer 2027 internships in GNC, navigation, and embedded vehicle controls. U.S. person (permanent resident).
-
----
-
-<sub>This repo is also the source for the portfolio site. See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for how it runs.</sub>
+<sub>This repo is also the portfolio site's source — [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) if you're curious.</sub>
