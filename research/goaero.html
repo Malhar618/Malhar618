@@ -43,6 +43,11 @@
           GoAERO @ Virginia Tech is a roughly 40-student team designing an emergency-response flyer for patient transport and medical delivery where airlifts are too costly or slow. The concept from our December 2024 preliminary design review: a fully electric VTOL with four detachable arms carrying contra-rotating propeller pairs (eight 35 kW motors), a welded aluminum fuselage, inflatable landing gear, and a design mass near 480 kg with a 128 kg payload.
         </p>
 
+        <figure>
+          <img src="../images/goaero_cad_external.webp" alt="CAD render of the GoAERO aircraft concept with a welded aluminum fuselage, four rotor arms, and inflatable pontoon landing gear" width="791" height="643" loading="lazy" decoding="async" />
+          <figcaption>The PDR concept: welded aluminum fuselage, detachable rotor arms, inflatable landing gear.</figcaption>
+        </figure>
+
         <h2>My Role</h2>
         <p>
           I led the avionics and programming workstream, coordinating software architecture and integration planning with the other aircraft subteams.
@@ -68,6 +73,16 @@
         <figure>
           <img src="../images/goaero_software_hierarchy.webp" alt="Software hierarchy diagram with a safety module able to override sensor integration, path planning, landing detection, and actuation modules" width="1497" height="256" loading="lazy" decoding="async" />
           <figcaption>Modular software hierarchy from the PDR. The safety module outranks everything else.</figcaption>
+        </figure>
+
+        <h2>Electric Power System</h2>
+        <p>
+          The avionics section also covered the electric power system: 2,065 Amprius SA80 lithium-ion cells in a 35-series, 59-parallel pack (70.6 kWh at 119.7 V) sized for a 275 kW takeoff peak, an Amphenol power distribution unit, MGM COMPRO ESCs matched to the motors, and battery/motor health monitoring down to per-cell temperatures and motor vibration.
+        </p>
+
+        <figure>
+          <img src="../images/goaero_eps_components.webp" alt="CAD cutaway of the fuselage subfloor showing battery packs, power distribution and flight controller units, and eight motor controllers" width="735" height="619" loading="lazy" decoding="async" />
+          <figcaption>Battery packs, power distribution, and motor controllers in the fuselage subfloor, from the PDR.</figcaption>
         </figure>
       </article>
 
