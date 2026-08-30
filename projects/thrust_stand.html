@@ -6,7 +6,7 @@
   <meta name="description" content="Three-DOF UAV thrust stand built under a NAVAIR Fellowship in Virginia Tech's Advanced Control Systems Lab: ROS 2, Dynamixel moment cancellation, and genetic-algorithm controller tuning." />
   <meta name="theme-color" content="#18202a" />
   <title>Three-DOF Thrust Stand | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260711e" />
+  <link rel="stylesheet" href="../styles.css?v=20260711f" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -63,6 +63,14 @@
           The software stack connected PX4 vehicle odometry, Dynamixel MX-series commands, filtered body-rate derivatives, and inertia matrices for the UAV and thrust-stand rings. Control torques came from rigid-body terms of the form I&alpha; + &omega; &times; I&omega;, checked against the motors' torque limits. Axis characterization used sinusoidal and step-input tests driven by C++ scripts on the Dynamixel SDK, with MATLAB post-processing of the logged responses.
         </p>
         <p>
+          The math behind the moment cancellation comes from the lab's full dynamic model of the stand, derived by ACSL's Luca Nanu and Giorgio A. Orlando with Dr. L'Afflitto. It treats the roll bar, inner ring, outer ring, and mounted UAV as separate volumes with their own reference frames, and derives the control input that cancels the structure's inertial torques, so the quadcopter on the stand can be controlled almost as if it were in free flight.
+        </p>
+
+        <figure>
+          <img src="../images/thruststand_dynamic_model.webp" alt="CAD scheme of the thrust stand showing the roll bar, inner ring, outer ring, and UAV volumes with their reference frames" width="1239" height="970" loading="lazy" decoding="async" />
+          <figcaption>Stand components and reference frames from the ACSL dynamic model (L. Nanu, G. A. Orlando, A. L'Afflitto).</figcaption>
+        </figure>
+        <p>
           Before trusting hardware tests, the team worked from CAD-derived body properties to reason about body frames, inertia, center-of-mass placement, and actuation constraints.
         </p>
 
@@ -108,6 +116,6 @@
       <li><a href="../#work">Back to work</a></li>
     </ul>
   </footer>
-  <script src="../script.js?v=20260711e" defer></script>
+  <script src="../script.js?v=20260711f" defer></script>
 </body>
 </html>

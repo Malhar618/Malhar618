@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GoAERO avionics and programming leadership by Malhar Mahajan." />
+  <meta name="description" content="GoAERO @ Virginia Tech avionics: Malhar Mahajan led the avionics and programming workstream for an electric VTOL emergency-response aircraft." />
   <meta name="theme-color" content="#18202a" />
   <title>GoAERO Avionics | Malhar Mahajan</title>
-  <link rel="stylesheet" href="../styles.css?v=20260711e" />
+  <link rel="stylesheet" href="../styles.css?v=20260711f" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -38,20 +38,36 @@
 
     <div class="detail-layout">
       <article class="detail-copy">
-        <h2>Role</h2>
+        <h2>The Aircraft</h2>
         <p>
-          I led the avionics and programming workstream for GoAERO @ Virginia Tech, coordinating software architecture and integration planning with other aircraft subteams.
+          GoAERO @ Virginia Tech is a roughly 40-student team designing an emergency-response flyer for patient transport and medical delivery where airlifts are too costly or slow. The concept from our December 2024 preliminary design review: a fully electric VTOL with four detachable arms carrying contra-rotating propeller pairs (eight 35 kW motors), a welded aluminum fuselage, inflatable landing gear, and a design mass near 480 kg with a 128 kg payload.
+        </p>
+
+        <h2>My Role</h2>
+        <p>
+          I led the avionics and programming workstream, coordinating software architecture and integration planning with the other aircraft subteams.
         </p>
         <ul>
-          <li>Defined ROS 2 messaging and interface expectations between flight stack, sensors, and onboard compute.</li>
-          <li>Built a validation path using SITL/HITL, telemetry, command pipelines, and staged integration milestones.</li>
-          <li>Contributed to the preliminary design review package for a rescue UAV concept.</li>
-          <li>Supported a multidisciplinary team that received a NASA University Innovation Prize valued at $30K.</li>
+          <li>Defined the compute architecture: an NVIDIA Jetson AGX Orin as the main computer, a Jetson Xavier NX running mirrored flight applications as a hot backup, and a Holybro Pixhawk 6X Pro handling low-level control over MAVLink, with Teensy microcontrollers driving the parachute and pontoon safety systems.</li>
+          <li>Set the software stack: Linux, ROS 2, and C++, with PX4 chosen over ArduPilot for its ROS 2 support, and SITL simulation as the primary test path before hardware.</li>
+          <li>Defined ROS 2 messaging and interface expectations between flight stack, sensors (IMU, GNSS, barometers, LiDAR, landing cameras), and onboard compute.</li>
+          <li>Built the validation path using SITL/HITL, telemetry, command pipelines, and staged integration milestones.</li>
+          <li>Contributed to the preliminary design review package; supported the multidisciplinary team that received a $30K NASA University Innovation Prize.</li>
         </ul>
 
         <figure>
-          <img src="../images/drone_900.webp" alt="UAV hardware with sensors and flight electronics" width="900" height="1200" loading="lazy" decoding="async" />
-          <figcaption>Relevant UAV hardware integration work from the project archive.</figcaption>
+          <img src="../images/goaero_system_architecture.webp" alt="System architecture diagram showing sensor, flight control, and power subsystems of the GoAERO aircraft" width="1433" height="763" loading="lazy" decoding="async" />
+          <figcaption>System architecture from our December 2024 PDR report.</figcaption>
+        </figure>
+
+        <h2>Software Design</h2>
+        <p>
+          The software hierarchy is modular, with a safety and fail-safe module at the highest priority that can override every other module. Sensor integration feeds object detection and avoidance; health monitoring, path planning, and landing detection sit between perception and actuation. Navigation uses deterministic algorithms (SLAM, RRT) over learned methods so behavior stays predictable outside the training-data distribution.
+        </p>
+
+        <figure>
+          <img src="../images/goaero_software_hierarchy.webp" alt="Software hierarchy diagram with a safety module able to override sensor integration, path planning, landing detection, and actuation modules" width="1497" height="256" loading="lazy" decoding="async" />
+          <figcaption>Modular software hierarchy from the PDR. The safety module outranks everything else.</figcaption>
         </figure>
       </article>
 
@@ -60,7 +76,8 @@
           <h2>Project Snapshot</h2>
           <dl>
             <div><dt>Role</dt><dd>Avionics and Programming Team Lead · Aug 2024 - Sep 2025</dd></div>
-            <div><dt>Focus</dt><dd>Flight stack, ROS 2 messaging, sensor interfaces</dd></div>
+            <div><dt>Compute</dt><dd>Jetson AGX Orin + Xavier NX backup, Pixhawk 6X Pro</dd></div>
+            <div><dt>Stack</dt><dd>Linux, ROS 2, C++, PX4, MAVLink</dd></div>
             <div><dt>Validation</dt><dd>SITL/HITL, telemetry, command pipeline</dd></div>
             <div><dt>Result</dt><dd>$30K NASA University Innovation Prize team</dd></div>
           </dl>
@@ -68,6 +85,7 @@
         <section class="evidence-card">
           <h2>Related Links</h2>
           <ul class="link-list">
+            <li><a href="https://goaeroprize.com/" target="_blank" rel="noopener">GoAERO competition</a></li>
             <li><a href="../#experience">Experience timeline</a></li>
             <li><a href="../resume.pdf" target="_blank" rel="noopener">Resume PDF</a></li>
           </ul>
@@ -84,6 +102,6 @@
       <li><a href="../#experience">Back to experience</a></li>
     </ul>
   </footer>
-  <script src="../script.js?v=20260711e" defer></script>
+  <script src="../script.js?v=20260711f" defer></script>
 </body>
 </html>
